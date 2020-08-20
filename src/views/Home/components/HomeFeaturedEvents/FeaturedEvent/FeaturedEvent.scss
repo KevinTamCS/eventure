@@ -1,0 +1,55 @@
+.FeaturedEvent {
+  margin: 0 auto;
+
+  .FeaturedEvent-banner {
+    display: block;
+    width: 100%;
+    border-radius: 0.625rem 0.625rem 0 0;
+    filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.075));
+  }
+
+  .FeaturedEvent-information {
+    padding: 6.25vw;
+    border-radius: 0 0 0.625rem 0.625rem;
+    background-color: #fff;
+    filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.075));
+
+    .FeaturedEvent-information-heading {
+      margin-bottom: 0.75rem;
+    }
+
+    .FeaturedEvent-information-Organizer {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.75rem;
+
+      .FeaturedEvent-information-Organizer-image {
+        margin-right: 0.75rem;
+        width: 2rem;
+        border-radius: 100%;
+      }
+
+      .FeaturedEvent-information-Organizer-name {
+        display: block;
+        margin: 0;
+      }
+    }
+
+    .FeaturedEvent-information-Time {
+      display: flex;
+      margin-bottom: 1.5rem;
+
+      .FeaturedEvent-information-Time-icon {
+        width: 2rem;
+        margin-right: 0.75rem;
+      }
+
+      .FeaturedEvent-information-Time-date-time-group {
+        .FeaturedEvent-information-Time-date,
+        .FeaturedEvent-information-Time-time {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
