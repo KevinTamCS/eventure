@@ -1,14 +1,17 @@
 // @flow
 import React from 'react';
-import './HomeFeaturedEvents.scss';
+import './FeaturedEvents.scss';
 import FeaturedEvent from './FeaturedEvent';
 import eventBanner from 'assets/dev/event-banner.jpg';
 import organizerImage from 'assets/dev/organizer.jpg';
+import propTypes from 'prop-types';
 
-const HomeFeaturedEvents = () => {
+const FeaturedEvents = ({ isLoggedIn }) => {
   return (
     <section className="home-featured-events">
-      <h2 className="home-featured-events-heading">Featured Events</h2>
+      <h2 className="home-featured-events-heading">
+        {!isLoggedIn ? 'Featured Events' : 'Events for You'}
+      </h2>
       <FeaturedEvent
         banner={eventBanner}
         bannerAlt="My awesome event"
@@ -23,4 +26,8 @@ const HomeFeaturedEvents = () => {
   );
 };
 
-export default HomeFeaturedEvents;
+FeaturedEvents.propTypes = {
+  isLoggedIn: propTypes.bool,
+};
+
+export default FeaturedEvents;

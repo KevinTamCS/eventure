@@ -35,10 +35,10 @@ const Header = () => {
               <LinkContainer to="/">
                 <Nav.Link>Discover</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="login">
+              <LinkContainer to="/login">
                 <Nav.Link>Log In</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="signup">
+              <LinkContainer to="/join">
                 <Button variant="primary">Sign Up</Button>
               </LinkContainer>
             </Nav>

@@ -1,5 +1,7 @@
 .FeaturedEvent {
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 
   .FeaturedEvent-banner {
     display: block;
@@ -9,7 +11,7 @@
   }
 
   .FeaturedEvent-information {
-    padding: 6.25vw;
+    padding: 1.5rem;
     border-radius: 0 0 0.625rem 0.625rem;
     background-color: #fff;
     filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.075));
@@ -51,5 +53,26 @@
         }
       }
     }
+  }
+
+  // 1024px
+  @media screen and (min-width: 64rem) {
+    flex-direction: row;
+
+    .FeaturedEvent-banner {
+      border-radius: 0.625rem 0 0 0.625rem;
+      object-fit: cover;
+      height: auto;
+      width: 65%;
+    }
+
+    .FeaturedEvent-information {
+      border-radius: 0 0.625rem 0.625rem 0;
+    }
+  }
+
+  // 1366px
+  @media screen and (min-width: 85.375rem) {
+    max-width: 76.875rem;
   }
 }

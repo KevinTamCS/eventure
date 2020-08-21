@@ -1,11 +1,49 @@
 .EventCategory {
-  padding: 0 6.25vw 4rem;
+  margin: 0 auto;
 
   .EventCategory-heading {
-    margin-bottom: 1.5rem;
+    padding: 0 6.25vw;
+  }
+
+  .EventCategory-events-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    // Hide scrollbars
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .EventCategory-events-container::-webkit-scrollbar {
+    display: none;
   }
 
   .EventCategory-events {
+    padding: 1rem 6.25vw 3rem;
     display: flex;
+  }
+
+  // 1024px
+  @media screen and (min-width: 64rem) {
+    .EventCategory-heading {
+      padding: 0 5vw;
+    }
+
+    .EventCategory-events {
+      padding: 1rem 5vw 3rem;
+    }
+  }
+
+  // 1366px
+  @media screen and (min-width: 85.375rem) {
+    max-width: 76.875rem;
+
+    .EventCategory-heading {
+      padding: 0;
+    }
+
+    .EventCategory-events {
+      padding: 1rem 0 3rem;
+    }
   }
 }

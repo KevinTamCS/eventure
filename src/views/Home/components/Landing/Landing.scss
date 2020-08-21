@@ -1,0 +1,44 @@
+.home-landing {
+  margin: 0 auto;
+  padding: 0 6.25vw 4rem;
+  display: flex;
+  flex-direction: column;
+
+  .home-landing-art {
+    display: none;
+  }
+
+  .home-landing-heading {
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+  }
+
+  .home-landing-paragraph {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  // 1024px
+  @media screen and (min-width: 64rem) {
+    padding: 0 6.25vw 6rem;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .home-landing-content {
+      align-self: center;
+      width: 40%;
+    }
+
+    .home-landing-art {
+      display: block;
+      width: 25rem;
+    }
+  }
+
+  // 1366px
+  @media screen and (min-width: 85.375rem) {
+    padding: 0 0 6rem;
+    max-width: 76.875rem;
+  }
+}

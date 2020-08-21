@@ -1,3 +1,8 @@
 .Home {
   padding-top: 6.25vw;
+
+  // 1024px
+  @media screen and (min-width: 64rem) {
+    padding-top: 4rem;
+  }
 }
