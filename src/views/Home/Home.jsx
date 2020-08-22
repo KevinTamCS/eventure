@@ -1,27 +1,30 @@
 // @flow
-import React, { useState } from 'react';
+import React from 'react';
 import Landing from './components/Landing';
 import FeaturedEvents from './components/FeaturedEvents';
 import EventCategory from './components/EventCategory/EventCategory';
 import Ending from './components/Ending';
-import './Home.scss';
+import { HomeContainer } from './styles';
 
 const Home = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  console.log(isLoggedIn);
 
   return (
-    <div className="Home">
+    <HomeContainer>
       {/* Display landing section for logged out users */}
-      {!isLoggedIn && <Landing />}
+      {(!isLoggedIn === false || null) && <Landing />}
 
-      <FeaturedEvents isLoggedIn={isLoggedIn}/>
+      {/* Load the featured events for the user */}
+      <FeaturedEvents isLoggedIn={isLoggedIn} />
 
       {/* Slowly render as many event categories as the user has */}
       <EventCategory title="Photography" />
       <EventCategory title="Live Performances" />
       <EventCategory title="Health and Wellness" />
+
       <Ending />
-    </div>
+    </HomeContainer>
   );
 };
 

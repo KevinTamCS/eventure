@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Event from './Event';
+import Event from 'components/Event';
 import eventBanner from 'assets/dev/event-banner.jpg';
-import './EventCategory.scss';
+import {
+  EventCategoryContainer,
+  Heading,
+  EventsContainer,
+  Events,
+} from './styles';
 
 const EventCategory = (props) => {
   // Temporary testing events
@@ -19,12 +24,12 @@ const EventCategory = (props) => {
   }
 
   return (
-    <section className="EventCategory">
-      <h2 className="EventCategory-heading">{props.title}</h2>
-      <div className="EventCategory-events-container">
-        <div className="EventCategory-events">{events}</div>
-      </div>
-    </section>
+    <EventCategoryContainer>
+      <Heading>{props.title}</Heading>
+      <EventsContainer>
+        <Events>{events}</Events>
+      </EventsContainer>
+    </EventCategoryContainer>
   );
 };
 

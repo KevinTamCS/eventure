@@ -1,17 +1,15 @@
 import React from 'react';
 import Button from 'components/Button';
-import './Ending.scss';
+import { EndingContainer, Heading } from './styles';
 
 const Ending = () => {
   return (
-    <section className="Ending">
-      <h2 className="Ending-heading">
-        Start your journey for virtual events today.
-      </h2>
-      <Button className="Ending-button-join" to="/join">
+    <EndingContainer>
+      <Heading>Start your journey for virtual events today.</Heading>
+      <Button center to="/join">
         Join Eventure
       </Button>
-    </section>
+    </EndingContainer>
   );
 };
 
