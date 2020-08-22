@@ -1,15 +1,30 @@
+// Global styles
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-
+  font-family: 'Inter', sans-serif;
   font-size: 1.125rem;
-}
 
-h1, h2 {
-  font-size: 2.25rem;
-}
+  h1 {
+    font-weight: bold;
+    font-size: 2.25rem;
+  }
 
-h3 {
-  font-size: 1.75rem;
+  h2 {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  // 700px
+  @media screen and (min-width: 43.75rem) {
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
 }
