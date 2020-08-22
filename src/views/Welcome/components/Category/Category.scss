@@ -1,0 +1,7 @@
+.CategoryCard-selected {
+  box-shadow: 0 0 0 4px rgb(70, 66, 244) !important;
+}
+
+.CategoryCard-selected:hover {
+  box-shadow: 0 0 0 4px rgb(70, 66, 244), 0 3px 20px rgba(0, 0, 0, 0.25) !important;
+}
