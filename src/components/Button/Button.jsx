@@ -2,9 +2,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
+import BootstrapButton from 'react-bootstrap/Button';
 
-export const StyledButton = styled.button`
-  ${(props) => (props.center ? 'margin: 0 auto;' : '')};
+export const StyledButton = styled(BootstrapButton)`
+  ${(props) => (props.centered ? 'margin: 0 auto;' : '')};
   display: block;
   width: 12.5rem;
   padding: 1rem;
@@ -31,12 +32,12 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const Button = (props) => {
+const Button = (props) => {
   return <StyledButton {...props}>{props.children}</StyledButton>;
 };
 
 Button.propTypes = {
-  center: PropTypes.bool,
+  centered: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.any,
 };

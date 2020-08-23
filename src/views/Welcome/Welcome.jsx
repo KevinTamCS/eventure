@@ -30,7 +30,7 @@ const Welcome = () => {
 
       <Categories preferredCategories={preferredCategories} />
 
-      <Button onClick={savePreferredCategories} center>
+      <Button onClick={savePreferredCategories} centered>
         Continue
       </Button>
     </WelcomeContainer>
