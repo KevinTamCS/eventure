@@ -9,7 +9,7 @@ import {
   OAuthSeparator,
   SubmitButton,
 } from './styles';
-import Button from 'components/Button';
+import { JoinContainer } from 'views/Join/styles';
 
 const Login = () => {
   const history = useHistory();
@@ -50,6 +50,10 @@ const Login = () => {
           <SubmitButton as="input" type="submit" value="Log In" />
         </Form>
       </Formik>
+
+      <OAuthSeparator>or</OAuthSeparator>
+
+      {/* TODO: Add Login with Facebook and Google buttons */}
     </LoginContainer>
   );
 };
