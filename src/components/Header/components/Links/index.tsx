@@ -1,32 +1,21 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import { LinkContainer } from 'react-router-bootstrap';
 import NavLink from '../NavLink';
-
-const NewEventNavLink = styled(NavLink)`
-  &&& {
-    color: #008aff;
-    transition: 0.1s;
-    transition-timing-function: ease-in-out;
-  }
-  &&&:hover {
-    color: #006aff;
-  }
-`;
+import { NewEventNavLink } from './styles';
 
 const Links = () => {
   const history = useHistory();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem('isLoggedIn')
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
+    JSON.parse(localStorage.getItem('isLoggedIn') as string)
   );
 
-  const logOutUser = () => {
+  const logOutUser = (): void => {
     console.log('Logging out user');
-    localStorage.setItem('isLoggedIn', false);
+    localStorage.setItem('isLoggedIn', JSON.stringify(false));
     setIsLoggedIn(false);
     history.push('/');
   };

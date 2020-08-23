@@ -1,11 +1,7 @@
 import React from 'react';
-import styled from 'styled-components/macro';
 import Navbar from 'react-bootstrap/Navbar';
+import { NavbarSearch } from './styles';
 import searchIcon from 'assets/icons/search.svg';
-
-const NavbarSearch = styled.img`
-  margin-right: 1.5rem;
-`;
 
 const Search = () => {
   return (
