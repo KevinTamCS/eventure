@@ -1,11 +1,11 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { useHistory } from 'react-router-dom';
-import FormField from '../../components/FormField';
 import {
   JoinContainer,
   Heading,
   JoinForm,
+  JoinFormField,
   SubmitButton,
   OAuthSeparator,
 } from './styles';
@@ -37,45 +37,49 @@ const Join = () => {
         }}
       >
         <JoinForm>
-          <FormField
+          <JoinFormField
             labelFor="firstName"
             inputType="text"
             inputName="firstName"
+            centered
             marginBottom
             required
           >
             First Name
-          </FormField>
+          </JoinFormField>
 
-          <FormField
+          <JoinFormField
             labelFor="lastName"
             inputType="text"
             inputName="lastName"
+            centered
             marginBottom
             required
           >
             Last Name
-          </FormField>
+          </JoinFormField>
 
-          <FormField
+          <JoinFormField
             labelFor="email"
             inputType="email"
             inputName="email"
+            centered
             marginBottom
             required
           >
             Email
-          </FormField>
+          </JoinFormField>
 
-          <FormField
+          <JoinFormField
             labelFor="password"
             inputType="password"
             inputName="password"
+            centered
             marginBottom
             required
           >
             Password
-          </FormField>
+          </JoinFormField>
 
           <SubmitButton as="input" type="submit" value="Get Started" />
         </JoinForm>

@@ -4,9 +4,10 @@ import styled from 'styled-components/macro';
 import { Field } from 'formik';
 
 const Container = styled.div`
+  ${(props) => (props.centered ? 'margin: 0 auto' : '')};
   display: flex;
   flex-direction: column;
-  ${(props) => (props.marginBottom ? 'margin-bottom: 1rem' : '')}
+  ${(props) => (props.marginBottom ? 'margin-bottom: 1rem' : '')};
 `;
 
 const Label = styled.label`
@@ -22,7 +23,11 @@ const InputField = styled(Field)`
 
 const FormField = (props) => {
   return (
-    <Container className={props.className} marginBottom={props.marginBottom}>
+    <Container
+      className={props.className}
+      centered={props.centered}
+      marginBottom={props.marginBottom}
+    >
       <Label htmlFor={props.labelFor}>{props.children}</Label>
       <InputField
         name={props.inputName}
@@ -35,6 +40,7 @@ const FormField = (props) => {
 
 FormField.propTypes = {
   className: propTypes.string,
+  centered: propTypes.bool,
   marginBottom: propTypes.bool,
   labelFor: propTypes.string.isRequired,
   children: propTypes.any,

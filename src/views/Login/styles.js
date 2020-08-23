@@ -12,7 +12,10 @@ export const Heading = styled.h1`
 `;
 
 export const LoginFormField = styled(FormField)`
-  margin-bottom: 1rem;
+  // 700px
+  @media screen and (min-width: 43.75rem) {
+    width: 20rem;
+  }
 `;
 
 export const SubmitButton = styled(StyledButton)`
