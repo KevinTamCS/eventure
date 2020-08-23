@@ -22,12 +22,22 @@ export const LandingContainer = styled.section`
 
 export const Content = styled.div`
   align-self: center;
-  width: 40%;
+
+  // 1024px
+  @media screen and (min-width: 64rem) {
+    width: 50%;
+  }
+
+  // 1366px
+  @media screen and (min-width: 85.375rem) {
+    width: 40%;
+  }
 `;
 
 export const Heading = styled.h1`
   font-size: 2.25rem;
   font-weight: bold;
+  margin-top: 0;
   margin-bottom: 0.75rem;
 `;
 
@@ -42,6 +52,11 @@ export const Art = styled.img`
   // 1024px
   @media screen and (min-width: 64rem) {
     display: block;
-    width: 25rem;
+    width: 40%;
+
+    // 1366px
+    @media screen and (min-width: 85.375rem) {
+      width: 25rem;
+    }
   }
 `;
