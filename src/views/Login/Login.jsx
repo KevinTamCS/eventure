@@ -9,7 +9,6 @@ import {
   OAuthSeparator,
   SubmitButton,
 } from './styles';
-import { JoinContainer } from 'views/Join/styles';
 
 const Login = () => {
   const history = useHistory();
