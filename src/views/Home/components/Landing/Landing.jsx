@@ -3,7 +3,6 @@ import React from 'react';
 import Button from 'components/Button';
 import rocketShipArt from 'assets/rocket-ship.svg';
 import { LandingContainer, Heading, Description, Art, Content } from './styles';
-import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (

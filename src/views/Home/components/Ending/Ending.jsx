@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from 'components/Button';
 import { EndingContainer, Heading } from './styles';
-import { Link } from 'react-router-dom';
 
 const Ending = () => {
   return (
