@@ -1,45 +1,131 @@
 // @flow
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components/macro';
-import BootstrapButton from 'react-bootstrap/Button';
-
-export const StyledButton = styled(BootstrapButton)`
-  ${(props) => (props.centered ? 'margin: 0 auto;' : '')};
-  display: block;
-  width: 12.5rem;
-  padding: 1rem;
-  color: #fff;
-  font-weight: bold;
-  background-color: #008aff;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  text-align: center;
-  font-size: 1.25rem;
-  transition: 0.2s;
-  transition-timing-function: ease-in-out;
-  outline: none;
-  border: none;
-
-  &:hover {
-    text-decoration: none;
-    color: #fff;
-    background-color: #3aa4ff;
-  }
-
-  &:active {
-    background-color: #1691ff;
-  }
-`;
+import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { StyledButton } from 'components/Button/styles';
 
 const Button = (props) => {
-  return <StyledButton {...props}>{props.children}</StyledButton>;
+  // Anchor tag
+  if (props.href) {
+    return (
+      <StyledButton
+        as="a"
+        href={props.href}
+        className={props.className}
+        centered={props.centered}
+        fillWidth={props.fillWidth}
+      >
+        {props.children}
+      </StyledButton>
+    );
+    // React Router Link component
+  } else if (props.to) {
+    return (
+      <StyledButton
+        as={Link}
+        to={props.to}
+        className={props.className}
+        centered={props.centered}
+        fillWidth={props.fillWidth}
+      >
+        {props.children}
+      </StyledButton>
+    );
+    // Regular button
+  } else if (props.onClick) {
+    return (
+      <StyledButton
+        as="button"
+        onClick={props.onClick}
+        className={props.className}
+        centered={props.centered}
+        fillWidth={props.fillWidth}
+      >
+        {props.children}
+      </StyledButton>
+    );
+    // Submit input type
+  } else if (props.value) {
+    return (
+      <StyledButton
+        as="input"
+        type="submit"
+        value={props.value}
+        className={props.className}
+        centered={props.centered}
+        fillWidth={props.fillWidth}
+      />
+    );
+    // Generic fallback button
+  } else {
+    return (
+      <StyledButton as="button" {...props}>
+        {props.children}
+      </StyledButton>
+    );
+  }
 };
 
 Button.propTypes = {
-  centered: PropTypes.bool,
-  onClick: PropTypes.func,
-  children: PropTypes.any,
+  href: propTypes.string,
+  to: propTypes.string,
+  onClick: propTypes.func,
+  value: propTypes.string,
+  className: propTypes.string,
+  centered: propTypes.bool,
+  fillWidth: propTypes.bool,
+  children: propTypes.any,
 };
 
 export default Button;
+
+// // A normal button.
+// export const NormalButton = ({ onClick, className, centered, children }) => {
+//   return (
+//     <StyledButton onClick={onClick} className={className} centered={centered}>
+//       {children}
+//     </StyledButton>
+//   );
+// };
+//
+// NormalButton.propTypes = {
+//   onClick: PropTypes.func,
+//   className: PropTypes.string,
+//   centered: PropTypes.bool,
+//   children: PropTypes.any,
+// };
+//
+// // A link styled as a button.
+// export const LinkButton = ({ to, className, centered, children }) => {
+//   return (
+//     <Button as={Link} to={to} className={className} centered={centered}>
+//       {children}
+//     </Button>
+//   );
+// };
+//
+// LinkButton.propTypes = {
+//   to: PropTypes.string.isRequired,
+//   className: PropTypes.string,
+//   centered: PropTypes.bool,
+//   children: PropTypes.any,
+// };
+//
+// // A submit input tag styled as a button.
+// export const SubmitButton = ({ value, className, centered }) => {
+//   return (
+//     <Button
+//       as="input"
+//       type="submit"
+//       value={value}
+//       className={className}
+//       centered={centered}
+//     />
+//   );
+// };
+//
+// SubmitButton.propTypes = {
+//   value: PropTypes.string.isRequired,
+//   className: PropTypes.string,
+//   centered: PropTypes.bool,
+// };

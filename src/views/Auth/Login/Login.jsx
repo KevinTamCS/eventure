@@ -1,21 +1,23 @@
 // @flow
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import {
-  LoginContainer,
+  AuthContainer,
   Heading,
-  LoginFormField,
+  AuthForm,
+  AuthFormField,
+  AuthButton,
   OAuthSeparator,
-  SubmitButton,
-} from './styles';
+} from 'views/Auth/styles';
 
 const Login = () => {
   const history = useHistory();
 
   return (
-    <LoginContainer>
+    <AuthContainer>
       <Heading>Log In</Heading>
+
       <Formik
         initialValues={{
           email: '',
@@ -27,33 +29,24 @@ const Login = () => {
           history.push('/');
         }}
       >
-        <Form>
-          <LoginFormField
-            labelFor="email"
-            inputName="email"
-            inputType="email"
-            required
-          >
-            Email
-          </LoginFormField>
+        <AuthForm>
+          <AuthFormField name="email" type="email" label="Email" required />
 
-          <LoginFormField
-            labelFor="password"
-            inputName="password"
-            inputType="password"
+          <AuthFormField
+            name="password"
+            type="password"
+            label="Password"
             required
-          >
-            Password
-          </LoginFormField>
+          />
 
-          <SubmitButton as="input" type="submit" value="Log In" />
-        </Form>
+          <AuthButton type="submit" value="Log In" centered />
+        </AuthForm>
       </Formik>
 
       <OAuthSeparator>or</OAuthSeparator>
 
       {/* TODO: Add Login with Facebook and Google buttons */}
-    </LoginContainer>
+    </AuthContainer>
   );
 };
 

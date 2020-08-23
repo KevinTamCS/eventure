@@ -1,52 +1,37 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import styled from 'styled-components/macro';
-import { Field } from 'formik';
-
-const Container = styled.div`
-  ${(props) => (props.centered ? 'margin: 0 auto' : '')};
-  display: flex;
-  flex-direction: column;
-  ${(props) => (props.marginBottom ? 'margin-bottom: 1rem' : '')};
-`;
-
-const Label = styled.label`
-  font-size: 1.25rem;
-  color: #585858;
-`;
-
-const InputField = styled(Field)`
-  border: 2px solid #bababa;
-  border-radius: 4px;
-  padding: 0.5rem;
-`;
+import {
+  FormFieldContainer,
+  Label,
+  Description,
+  StyledField,
+  StyledErrorMessage,
+} from './styles';
 
 const FormField = (props) => {
   return (
-    <Container
-      className={props.className}
-      centered={props.centered}
-      marginBottom={props.marginBottom}
-    >
-      <Label htmlFor={props.labelFor}>{props.children}</Label>
-      <InputField
-        name={props.inputName}
-        type={props.inputType}
+    <FormFieldContainer className={props.className}>
+      <Label htmlFor={props.name}>{props.label}</Label>
+      {props.description ? <Description>{props.description}</Description> : ''}
+      <StyledField
+        type={props.type}
+        name={props.name}
+        placeholder={props.placeholder}
         required={props.required}
       />
-    </Container>
+      <StyledErrorMessage name={props.name} />
+    </FormFieldContainer>
   );
 };
 
 FormField.propTypes = {
-  className: propTypes.string,
-  centered: propTypes.bool,
-  marginBottom: propTypes.bool,
-  labelFor: propTypes.string.isRequired,
-  children: propTypes.any,
-  inputName: propTypes.string.isRequired,
-  inputType: propTypes.string.isRequired,
+  name: propTypes.string.isRequired,
+  type: propTypes.string.isRequired,
+  label: propTypes.string,
+  description: propTypes.string,
+  placeholder: propTypes.string,
   required: propTypes.bool,
+  className: propTypes.string,
 };
 
 FormField.defaultProps = {
