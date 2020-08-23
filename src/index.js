@@ -1,23 +1,15 @@
 // @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Routes from './routes';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import App from './App';
+import 'typeface-inter';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'typeface-lato';
+import 'normalize.css';
 import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Header />
-      <main>
-        <Routes />
-      </main>
-      <Footer />
-    </Router>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
