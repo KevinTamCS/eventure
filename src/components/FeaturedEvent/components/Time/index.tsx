@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
-import clockIcon from 'assets/icons/clock.svg';
 import { Container, Icon, Text } from './styles';
+import clockIcon from 'assets/icons/clock.svg';
 
 interface Props {
   startTime: Date;
