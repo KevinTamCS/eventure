@@ -1,14 +1,32 @@
 import React from 'react';
 import {
   StyledAnchor,
-  AnchorProps,
   StyledLink,
-  LinkProps,
   StyledButton,
-  ButtonProps,
   StyledSubmit,
-  SubmitProps,
 } from 'components/Button/styles';
+
+interface CommonProps {
+  centered?: boolean;
+  className?: string;
+  children?: any;
+}
+
+export interface AnchorProps extends CommonProps {
+  href: string;
+}
+
+export interface LinkProps extends CommonProps {
+  to: string;
+}
+
+export interface ButtonProps extends CommonProps {
+  onClick: () => void;
+}
+
+export interface SubmitProps extends CommonProps {
+  value: string;
+}
 
 export const AnchorButton: React.FC<AnchorProps> = ({
   href,

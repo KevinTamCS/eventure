@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components/macro';
 import { Link } from 'react-router-dom';
+import { AnchorProps, ButtonProps, LinkProps, SubmitProps } from './index';
 
 const ButtonStyles = css`
   display: block;
@@ -36,46 +37,20 @@ const ButtonStyles = css`
   }
 `;
 
-interface CommonProps {
-  centered?: boolean;
-  className?: string;
-  children?: any;
-}
-
-// Styled Anchor
-export interface AnchorProps extends CommonProps {
-  href: string;
-}
-
 export const StyledAnchor = styled.a<AnchorProps>`
   ${(props) => (props.centered ? 'margin: 0 auto' : '')};
   ${ButtonStyles}
 `;
-
-// Styled Link
-export interface LinkProps extends CommonProps {
-  to: string;
-}
 
 export const StyledLink = styled(Link)<LinkProps>`
   ${(props) => (props.centered ? 'margin: 0 auto' : '')};
   ${ButtonStyles}
 `;
 
-// Styled Button
-export interface ButtonProps extends CommonProps {
-  onClick: () => void;
-}
-
 export const StyledButton = styled.button<ButtonProps>`
   ${(props) => (props.centered ? 'margin: 0 auto' : '')};
   ${ButtonStyles}
 `;
-
-// Styled Submit
-export interface SubmitProps extends CommonProps {
-  value: string;
-}
 
 export const StyledSubmit = styled.input<SubmitProps>`
   ${(props) => (props.centered ? 'margin: 0 auto' : '')};
