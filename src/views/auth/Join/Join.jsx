@@ -9,7 +9,7 @@ import {
   AuthFormField,
   AuthButton,
   OAuthSeparator,
-} from 'views/Auth/styles';
+} from 'views/auth/styles';
 
 const Join = () => {
   const history = useHistory();
