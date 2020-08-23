@@ -7,7 +7,7 @@ const Ending = () => {
   return (
     <EndingContainer>
       <Heading>Start your journey for virtual events today.</Heading>
-      <Button as={Link} centered to="/join">
+      <Button to="/join" centered>
         Join Eventure
       </Button>
     </EndingContainer>

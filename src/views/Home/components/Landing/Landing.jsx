@@ -15,9 +15,7 @@ const Landing = () => {
           host virtual events, all without the hassle of the things that come
           with in-person events.
         </Description>
-        <Button as={Link} to="/join" className="home-landing-button-signup">
-          Get Started
-        </Button>
+        <Button to="/join">Get Started</Button>
       </Content>
       <Art src={rocketShipArt} alt="Rocket ship" />
     </LandingContainer>
