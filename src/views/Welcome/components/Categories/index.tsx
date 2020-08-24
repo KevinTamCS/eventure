@@ -1,6 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
-import Category from '../Category';
+import Category from 'views/Welcome/components/Category';
 import { CategoriesContainer } from './styles';
 
 import musicImage from 'assets/categories/music.jpg';
@@ -24,135 +23,137 @@ import languageAndCultureImage from 'assets/categories/language-and-culture.jpg'
 import socialImage from 'assets/categories/social.jpg';
 import fashionImage from 'assets/categories/fashion.jpg';
 
-const Categories = (props) => {
+interface Props {
+  preferredCategories: Set<string>;
+}
+
+const Categories: React.FC<Props> = (props) => {
+  const { preferredCategories } = props;
+
   return (
     <CategoriesContainer>
       <Category
         categoryId="music"
         categoryImage={musicImage}
         categoryTitle="Music"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="photography"
         categoryImage={photographyImage}
         categoryTitle="Photography"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="arts"
         categoryImage={artsImage}
         categoryTitle="Arts"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="books"
         categoryImage={booksImage}
         categoryTitle="Books"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="foodAndDrink"
         categoryImage={foodAndDrinkImage}
         categoryTitle="Food & Drink"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="scienceAndTech"
         categoryImage={scienceAndTechImage}
         categoryTitle="Science & Tech"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="livePerformances"
         categoryImage={livePerformancesImage}
         categoryTitle="Live Performances"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="educationAndLearning"
         categoryImage={educationAndLearningImage}
         categoryTitle="Education & Learning"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="homeAndLifestyle"
         categoryImage={homeAndLifestyleImage}
         categoryTitle="Home & Lifestyle"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="healthAndWellness"
         categoryImage={healthAndWellnessImage}
         categoryTitle="Health & Wellness"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="sportsAndFitness"
         categoryImage={sportsAndFitnessImage}
         categoryTitle="Sports & Fitness"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="filmAndMedia"
         categoryImage={filmAndMediaImage}
         categoryTitle="Film & Media"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="lgbtq"
         categoryImage={lgbtqImage}
         categoryTitle="LGBTQ"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="movements"
         categoryImage={movementsImage}
         categoryTitle="Movements"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="careerAndBusiness"
         categoryImage={careerAndBusinessImage}
         categoryTitle="Career & Business"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="hobbies"
         categoryImage={hobbiesImage}
         categoryTitle="Hobbies"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="gamesAndFun"
         categoryImage={gamesAndFunImage}
         categoryTitle="Games & Fun"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="languageAndCulture"
         categoryImage={languageAndCultureImage}
         categoryTitle="Language & Culture"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="social"
         categoryImage={socialImage}
         categoryTitle="Social"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
       <Category
         categoryId="fashion"
         categoryImage={fashionImage}
         categoryTitle="Fashion"
-        preferredCategories={props.preferredCategories}
+        preferredCategories={preferredCategories}
       />
     </CategoriesContainer>
   );
-};
-
-Categories.propTypes = {
-  preferredCategories: propTypes.object,
 };
 
 export default Categories;
