@@ -8,7 +8,9 @@ interface Props {
   endTime: Date;
 }
 
-const Time: React.FC<Props> = ({ startTime, endTime }) => {
+const Time: React.FC<Props> = (props) => {
+  const { startTime, endTime } = props;
+
   const formattedStartDate = moment(startTime).format('MMMM Do, YYYY');
   const formattedStartTime = moment(startTime).format('h:mm A');
   const formattedEndTime = moment(endTime).format('h:mm A');

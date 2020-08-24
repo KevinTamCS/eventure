@@ -28,12 +28,9 @@ export interface SubmitProps extends CommonProps {
   value: string;
 }
 
-export const AnchorButton: React.FC<AnchorProps> = ({
-  href,
-  className,
-  centered,
-  children,
-}) => {
+export const AnchorButton: React.FC<AnchorProps> = (props) => {
+  const { href, className, centered, children } = props;
+
   return (
     <StyledAnchor href={href} className={className} centered={centered}>
       {children}
@@ -41,12 +38,9 @@ export const AnchorButton: React.FC<AnchorProps> = ({
   );
 };
 
-export const LinkButton: React.FC<LinkProps> = ({
-  to,
-  className,
-  centered,
-  children,
-}) => {
+export const LinkButton: React.FC<LinkProps> = (props) => {
+  const { to, className, centered, children } = props;
+
   return (
     <StyledLink to={to} className={className} centered={centered}>
       {children}
@@ -54,12 +48,9 @@ export const LinkButton: React.FC<LinkProps> = ({
   );
 };
 
-export const Button: React.FC<ButtonProps> = ({
-  onClick,
-  className,
-  centered,
-  children,
-}) => {
+export const Button: React.FC<ButtonProps> = (props) => {
+  const { onClick, className, centered, children } = props;
+
   return (
     <StyledButton onClick={onClick} className={className} centered={centered}>
       {children}
@@ -67,12 +58,9 @@ export const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export const SubmitButton: React.FC<SubmitProps> = ({
-  value,
-  className,
-  centered,
-  children,
-}) => {
+export const SubmitButton: React.FC<SubmitProps> = (props) => {
+  const { value, className, centered, children } = props;
+
   return (
     <StyledSubmit
       type="submit"

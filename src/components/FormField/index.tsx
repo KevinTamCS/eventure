@@ -17,18 +17,28 @@ interface Props {
   className?: string;
 }
 
-const FormField: React.FC<Props> = ({ required = false, ...props }) => {
+const FormField: React.FC<Props> = (props) => {
+  const {
+    name,
+    type,
+    label,
+    description,
+    placeholder,
+    required = false,
+    className,
+  } = props;
+
   return (
-    <FormFieldContainer className={props.className}>
-      <Label htmlFor={props.name}>{props.label}</Label>
-      {props.description ? <Description>{props.description}</Description> : ''}
+    <FormFieldContainer className={className}>
+      <Label htmlFor={name}>{label}</Label>
+      {description ? <Description>{description}</Description> : ''}
       <StyledField
-        type={props.type}
-        name={props.name}
-        placeholder={props.placeholder}
+        type={type}
+        name={name}
+        placeholder={placeholder}
         required={required}
       />
-      <StyledErrorMessage name={props.name} />
+      <StyledErrorMessage name={name} />
     </FormFieldContainer>
   );
 };

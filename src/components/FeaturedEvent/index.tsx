@@ -20,16 +20,18 @@ interface Props {
   summary?: string;
 }
 
-const FeaturedEvent: React.FC<Props> = ({
-  banner,
-  bannerAlt,
-  title,
-  organizerName,
-  organizerImage,
-  startTime,
-  endTime,
-  summary,
-}) => {
+const FeaturedEvent: React.FC<Props> = (props) => {
+  const {
+    banner,
+    bannerAlt,
+    title,
+    organizerName,
+    organizerImage,
+    startTime,
+    endTime,
+    summary,
+  } = props;
+
   return (
     <FeaturedEventContainer>
       <Card to="/event/:id">

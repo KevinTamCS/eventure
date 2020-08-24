@@ -18,13 +18,9 @@ interface Props {
   startTime: Date;
 }
 
-const Event: React.FC<Props> = ({
-  banner,
-  bannerAlt,
-  title,
-  organizer,
-  startTime,
-}) => {
+const Event: React.FC<Props> = (props) => {
+  const { banner, bannerAlt, title, organizer, startTime } = props;
+
   const startDateTime = moment(startTime).format('ddd, MMM D, YYYY, h:mm A z');
 
   return (

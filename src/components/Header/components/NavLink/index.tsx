@@ -9,7 +9,9 @@ interface Props {
 }
 
 // Bootstrap Nav.Link wrapped around a LinkContainer for React Router.
-const NavLink: React.FC<Props> = ({ to, className, children }) => {
+const NavLink: React.FC<Props> = (props) => {
+  const { to, className, children } = props;
+
   return (
     <StyledNavLink to={to} className={className}>
       <Nav.Link>{children}</Nav.Link>
