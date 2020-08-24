@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
@@ -25,7 +24,7 @@ const Login = () => {
         }}
         onSubmit={(values) => {
           console.log(`Logging in user ${values.email}`);
-          localStorage.setItem('isLoggedIn', true);
+          localStorage.setItem('isLoggedIn', JSON.stringify(true));
           history.push('/');
         }}
       >
@@ -39,7 +38,7 @@ const Login = () => {
             required
           />
 
-          <AuthButton type="submit" value="Log In" centered />
+          <AuthButton value="Log In" centered />
         </AuthForm>
       </Formik>
 

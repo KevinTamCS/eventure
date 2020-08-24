@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 import { Form } from 'formik';
 import FormField from 'components/FormField';
-import Button from 'components/Button';
+import { SubmitButton } from 'components/Button';
 
 export const AuthContainer = styled.div`
   padding: 1rem 6.25vw 0;
@@ -25,7 +25,7 @@ export const AuthFormField = styled(FormField)`
   }
 `;
 
-export const AuthButton = styled(Button)`
+export const AuthButton = styled(SubmitButton)`
   margin: 2rem auto;
 `;
 

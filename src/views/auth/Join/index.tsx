@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
@@ -33,7 +32,7 @@ const Join = () => {
           localStorage.setItem('firstName', values.firstName);
           localStorage.setItem('lastName', values.lastName);
           localStorage.setItem('email', values.email);
-          localStorage.setItem('isLoggedIn', true);
+          localStorage.setItem('isLoggedIn', JSON.stringify(true));
           history.push('/welcome');
         }}
       >
@@ -61,7 +60,7 @@ const Join = () => {
             required
           />
 
-          <AuthButton type="submit" value="Get Started" centered />
+          <AuthButton value="Get Started" centered />
         </AuthForm>
       </Formik>
 
