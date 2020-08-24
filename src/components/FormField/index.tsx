@@ -1,5 +1,4 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import {
   FormFieldContainer,
   Label,
@@ -8,7 +7,17 @@ import {
   StyledErrorMessage,
 } from './styles';
 
-const FormField = (props) => {
+interface Props {
+  name: string;
+  type: string;
+  label?: string;
+  description?: string;
+  placeholder?: string;
+  required?: boolean;
+  className?: string;
+}
+
+const FormField: React.FC<Props> = ({ required = false, ...props }) => {
   return (
     <FormFieldContainer className={props.className}>
       <Label htmlFor={props.name}>{props.label}</Label>
@@ -17,25 +26,11 @@ const FormField = (props) => {
         type={props.type}
         name={props.name}
         placeholder={props.placeholder}
-        required={props.required}
+        required={required}
       />
       <StyledErrorMessage name={props.name} />
     </FormFieldContainer>
   );
-};
-
-FormField.propTypes = {
-  name: propTypes.string.isRequired,
-  type: propTypes.string.isRequired,
-  label: propTypes.string,
-  description: propTypes.string,
-  placeholder: propTypes.string,
-  required: propTypes.bool,
-  className: propTypes.string,
-};
-
-FormField.defaultProps = {
-  required: false,
 };
 
 export default FormField;

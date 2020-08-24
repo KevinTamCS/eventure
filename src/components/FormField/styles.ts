@@ -2,7 +2,6 @@ import styled from 'styled-components/macro';
 import { ErrorMessage, Field } from 'formik';
 
 export const FormFieldContainer = styled.div`
-  ${(props) => (props.centered ? 'margin: 0 auto' : '')};
   display: flex;
   flex-direction: column;
 `;
