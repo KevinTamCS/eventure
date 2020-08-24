@@ -1,11 +1,9 @@
-// @flow
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from 'views/Home';
 import Join from 'views/auth/Join';
 import Login from 'views/auth/Login';
 import Welcome from 'views/Welcome';
-import CreateEvent from 'views/CreateEvent';
 
 const Routes = () => {
   return (
