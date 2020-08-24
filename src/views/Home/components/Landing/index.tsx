@@ -1,6 +1,5 @@
-// @flow
 import React from 'react';
-import Button from 'components/Button';
+import { LinkButton } from 'components/Button';
 import rocketShipArt from 'assets/rocket-ship.svg';
 import { LandingContainer, Heading, Description, Art, Content } from './styles';
 
@@ -14,7 +13,7 @@ const Landing = () => {
           host virtual events, all without the hassle of the things that come
           with in-person events.
         </Description>
-        <Button to="/join">Get Started</Button>
+        <LinkButton to="/join">Get Started</LinkButton>
       </Content>
       <Art src={rocketShipArt} alt="Rocket ship" />
     </LandingContainer>

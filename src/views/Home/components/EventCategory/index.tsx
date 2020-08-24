@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Event from 'components/Event';
 import eventBanner from 'assets/dev/event-banner.jpg';
 import {
@@ -9,9 +8,15 @@ import {
   Events,
 } from './styles';
 
-const EventCategory = (props) => {
+interface Props {
+  title: string;
+}
+
+const EventCategory: React.FC<Props> = (props) => {
+  const { title } = props;
+
   // Temporary testing events
-  const events = [];
+  const events: JSX.Element[] = [];
   for (let i = 0; i < 7; i++) {
     events.push(
       <Event
@@ -25,16 +30,12 @@ const EventCategory = (props) => {
 
   return (
     <EventCategoryContainer>
-      <Heading>{props.title}</Heading>
+      <Heading>{title}</Heading>
       <EventsContainer>
         <Events>{events}</Events>
       </EventsContainer>
     </EventCategoryContainer>
   );
-};
-
-EventCategory.propTypes = {
-  title: PropTypes.string,
 };
 
 export default EventCategory;

@@ -1,19 +1,19 @@
-// @flow
 import React from 'react';
 import Landing from './components/Landing';
 import FeaturedEvents from './components/FeaturedEvents';
-import EventCategory from './components/EventCategory/EventCategory';
+import EventCategory from './components/EventCategory';
 import Ending from './components/Ending';
 import { HomeContainer } from './styles';
 
 const Home = () => {
-  const isLoggedIn = localStorage.getItem('isLoggedIn');
-  console.log(isLoggedIn);
+  const isLoggedIn: boolean = JSON.parse(
+    localStorage.getItem('isLoggedIn') as string
+  );
 
   return (
     <HomeContainer>
       {/* Display landing section for logged out users */}
-      {(!isLoggedIn === false || null) && <Landing />}
+      {!isLoggedIn && <Landing />}
 
       {/* Load the featured events for the user */}
       <FeaturedEvents isLoggedIn={isLoggedIn} />

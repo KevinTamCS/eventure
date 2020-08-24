@@ -1,14 +1,14 @@
 import React from 'react';
-import Button from 'components/Button';
+import { LinkButton } from 'components/Button';
 import { EndingContainer, Heading } from './styles';
 
 const Ending = () => {
   return (
     <EndingContainer>
       <Heading>Start your journey for virtual events today.</Heading>
-      <Button to="/join" centered>
+      <LinkButton to="/join" centered>
         Join Eventure
-      </Button>
+      </LinkButton>
     </EndingContainer>
   );
 };

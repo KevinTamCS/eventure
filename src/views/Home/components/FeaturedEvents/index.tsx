@@ -1,12 +1,16 @@
-// @flow
 import React from 'react';
 import FeaturedEvent from 'components/FeaturedEvent';
 import eventBanner from 'assets/dev/event-banner.jpg';
 import organizerImage from 'assets/dev/organizer.jpg';
-import propTypes from 'prop-types';
 import { FeaturedEventsContainer, Heading } from './styles';
 
-const FeaturedEvents = ({ isLoggedIn }) => {
+interface Props {
+  isLoggedIn: boolean;
+}
+
+const FeaturedEvents: React.FC<Props> = (props) => {
+  const { isLoggedIn } = props;
+
   return (
     <FeaturedEventsContainer>
       <Heading>{!isLoggedIn ? 'Featured Events' : 'Events for You'}</Heading>
@@ -14,7 +18,7 @@ const FeaturedEvents = ({ isLoggedIn }) => {
         banner={eventBanner}
         bannerAlt="My awesome event"
         title="My Awesome Event"
-        organizer="John Doe"
+        organizerName="John Doe"
         organizerImage={organizerImage}
         startTime={new Date('January 1, 2021 10:00 AM')}
         endTime={new Date('January 1, 2021 12:00 PM')}
@@ -22,10 +26,6 @@ const FeaturedEvents = ({ isLoggedIn }) => {
       />
     </FeaturedEventsContainer>
   );
-};
-
-FeaturedEvents.propTypes = {
-  isLoggedIn: propTypes.bool,
 };
 
 export default FeaturedEvents;
