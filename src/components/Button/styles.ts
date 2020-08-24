@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import { AnchorProps, ButtonProps, LinkProps, SubmitProps } from './index';
+import BootstrapButton from 'react-bootstrap/Button';
 
 const ButtonStyles = css`
   display: block;
@@ -47,7 +48,7 @@ export const StyledLink = styled(Link)<LinkProps>`
   ${ButtonStyles}
 `;
 
-export const StyledButton = styled.button<ButtonProps>`
+export const StyledButton = styled(BootstrapButton)<ButtonProps>`
   ${(props) => (props.centered ? 'margin: 0 auto' : '')};
   ${ButtonStyles}
 `;
