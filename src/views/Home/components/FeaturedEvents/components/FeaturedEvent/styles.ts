@@ -6,7 +6,7 @@ export const FeaturedEventContainer = styled.article`
 
   // 1366px
   @media screen and (min-width: 85.375rem) {
-    max-width: 76.875rem;
+    //max-width: 76.875rem;
   }
 `;
 
@@ -45,8 +45,7 @@ export const Banner = styled.img`
   @media screen and (min-width: 64rem) {
     border-radius: 0.625rem 0 0 0.625rem;
     object-fit: cover;
-    height: auto;
-    width: 70%;
+    height: 100%;
   }
 `;
 
@@ -59,6 +58,7 @@ export const Information = styled.div`
   // 1024px
   @media screen and (min-width: 64rem) {
     border-radius: 0 0.625rem 0.625rem 0;
+    height: 100%;
   }
 `;
 

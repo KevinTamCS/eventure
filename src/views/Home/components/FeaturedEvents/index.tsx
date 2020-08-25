@@ -1,5 +1,5 @@
 import React from 'react';
-import FeaturedEvent from 'components/FeaturedEvent';
+import FeaturedEvent from './components/FeaturedEvent';
 import eventBanner from 'assets/dev/event-banner.jpg';
 import organizerImage from 'assets/dev/organizer.jpg';
 import { FeaturedEventsContainer, Heading } from './styles';
