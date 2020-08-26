@@ -5,8 +5,8 @@ import Organizer from '../Organizer';
 import Time from '../Time';
 import {
   Banner,
-  Card,
-  FeaturedEventContainer,
+  StyledLink,
+  FeaturedEventArticle,
   Information,
   InformationHeading,
   Summary,
@@ -36,8 +36,8 @@ const FeaturedEvent: React.FC<Props> = (props) => {
   } = props;
 
   return (
-    <FeaturedEventContainer>
-      <Card to="/event/:id">
+    <FeaturedEventArticle>
+      <StyledLink to="/event/:id">
         <Row noGutters>
           <Col lg={8}>
             <Banner src={banner} alt={bannerAlt} />
@@ -51,8 +51,8 @@ const FeaturedEvent: React.FC<Props> = (props) => {
             </Information>
           </Col>
         </Row>
-      </Card>
-    </FeaturedEventContainer>
+      </StyledLink>
+    </FeaturedEventArticle>
   );
 };
 

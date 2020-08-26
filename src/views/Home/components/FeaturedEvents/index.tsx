@@ -2,7 +2,7 @@ import React from 'react';
 import FeaturedEvent from './components/FeaturedEvent';
 import eventBanner from 'assets/dev/event-banner.jpg';
 import organizerImage from 'assets/dev/organizer.jpg';
-import { FeaturedEventsContainer, Heading } from './styles';
+import { FeaturedEventsSection, Heading } from './styles';
 
 interface Props {
   isLoggedIn: boolean;
@@ -12,7 +12,7 @@ const FeaturedEvents: React.FC<Props> = (props) => {
   const { isLoggedIn } = props;
 
   return (
-    <FeaturedEventsContainer>
+    <FeaturedEventsSection>
       <Heading>{!isLoggedIn ? 'Featured Events' : 'Events for You'}</Heading>
       <FeaturedEvent
         banner={eventBanner}
@@ -24,7 +24,7 @@ const FeaturedEvents: React.FC<Props> = (props) => {
         endTime={new Date('January 1, 2021 12:00 PM')}
         summary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus justo fermentum, vehicula est id, dictum lectus. Vivamus et pharetra diam gravida."
       />
-    </FeaturedEventsContainer>
+    </FeaturedEventsSection>
   );
 };
 

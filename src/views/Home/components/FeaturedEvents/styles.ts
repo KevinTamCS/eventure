@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const FeaturedEventsContainer = styled.section`
+export const FeaturedEventsSection = styled.section`
   padding: 1rem 0;
 `;
 
@@ -10,8 +10,7 @@ export const Heading = styled.h2`
   font-weight: bold;
   font-size: 2.75rem;
 
-  // 700px
-  @media screen and (min-width: 43.75rem) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 2rem;
     font-size: 3rem;
   }
