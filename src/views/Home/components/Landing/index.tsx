@@ -1,20 +1,20 @@
 import React from 'react';
-import Row from 'react-bootstrap/Row';
 import { LinkButton } from 'components/Button';
 import rocketShipArt from 'assets/rocket-ship.svg';
 import {
   LandingSection,
+  StyledRow,
+  ContentCol,
   Heading,
   Description,
-  Art,
-  ContentCol,
   ArtCol,
+  Art,
 } from './styles';
 
 const Landing = () => {
   return (
     <LandingSection>
-      <Row className="justify-content-between" noGutters>
+      <StyledRow noGutters>
         <ContentCol lg="auto">
           <Heading>Embark on an adventure for virtual events.</Heading>
           <Description>
@@ -27,7 +27,7 @@ const Landing = () => {
         <ArtCol lg>
           <Art src={rocketShipArt} alt="Rocket ship" />
         </ArtCol>
-      </Row>
+      </StyledRow>
     </LandingSection>
   );
 };

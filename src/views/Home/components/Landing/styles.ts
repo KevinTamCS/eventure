@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 export const LandingSection = styled.section`
@@ -12,6 +13,10 @@ export const LandingSection = styled.section`
   @media screen and (min-width: 992px) {
     padding: 3rem 0 6rem;
   }
+`;
+
+export const StyledRow = styled(Row)`
+  justify-content: space-between;
 `;
 
 export const ContentCol = styled(Col)`
