@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const FeaturedEventsSection = styled.section`
-  padding: 1rem 0;
+  padding: 1rem 0 3rem;
 `;
 
 export const Heading = styled.h2`
