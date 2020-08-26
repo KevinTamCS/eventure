@@ -2,34 +2,32 @@ import styled from 'styled-components/macro';
 
 export const LandingContainer = styled.section`
   margin: 0 auto;
-  padding: 0 6.25vw 4rem;
+  padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
 
   // 1024px
   @media screen and (min-width: 64rem) {
-    padding: 0 6.25vw 6rem;
+    padding: 2rem 0 6rem;
     flex-direction: row;
     justify-content: space-between;
-  }
-
-  // 1366px
-  @media screen and (min-width: 85.375rem) {
-    padding: 0 0 6rem;
-    max-width: 76.875rem;
   }
 `;
 
 export const Content = styled.div`
-  align-self: center;
+  // 768px
+  @media screen and (min-width: 768px) {
+    width: 70%;
+  }
 
   // 1024px
-  @media screen and (min-width: 64rem) {
+  @media screen and (min-width: 992px) {
+    align-self: center;
     width: 50%;
   }
 
   // 1366px
-  @media screen and (min-width: 85.375rem) {
+  @media screen and (min-width: 1200px) {
     width: 40%;
   }
 `;

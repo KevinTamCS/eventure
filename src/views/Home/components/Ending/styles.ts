@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const EndingContainer = styled.section`
+  margin-top: 2rem;
   padding: 5rem 2rem;
   background-color: #c8e4ff;
 `;

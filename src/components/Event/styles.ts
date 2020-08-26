@@ -3,11 +3,27 @@ import { Link } from 'react-router-dom';
 
 export const EventContainer = styled.article`
   padding-right: 1.5rem;
+
+  &:last-child {
+    padding-right: 6.25vw;
+  }
+
+  @media screen and (min-width: 992px) {
+    &:last-child {
+      padding-right: 2.75rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    &:last-child {
+      padding-right: 1rem;
+    }
+  }
 `;
 
 export const Card = styled(Link)`
   color: inherit;
-  
+
   &:hover {
     color: inherit;
     text-decoration: none;
@@ -22,10 +38,6 @@ export const EventBanner = styled.img`
 
   // Disable image dragging
   -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
 `;
 
 export const EventInformation = styled.div`

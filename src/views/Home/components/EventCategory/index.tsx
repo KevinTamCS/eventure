@@ -1,12 +1,7 @@
 import React from 'react';
 import Event from 'components/Event';
 import eventBanner from 'assets/dev/event-banner.jpg';
-import {
-  EventCategoryContainer,
-  Heading,
-  EventsContainer,
-  Events,
-} from './styles';
+import { EventCategoryContainer, Heading, EventsContainer } from './styles';
 
 interface Props {
   title: string;
@@ -17,7 +12,7 @@ const EventCategory: React.FC<Props> = (props) => {
 
   // Temporary testing events
   const events: JSX.Element[] = [];
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < 8; i++) {
     events.push(
       <Event
         banner={eventBanner}
@@ -31,9 +26,7 @@ const EventCategory: React.FC<Props> = (props) => {
   return (
     <EventCategoryContainer>
       <Heading>{title}</Heading>
-      <EventsContainer>
-        <Events>{events}</Events>
-      </EventsContainer>
+      <EventsContainer>{events}</EventsContainer>
     </EventCategoryContainer>
   );
 };

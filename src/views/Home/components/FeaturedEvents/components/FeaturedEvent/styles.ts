@@ -3,11 +3,6 @@ import { Link } from 'react-router-dom';
 
 export const FeaturedEventContainer = styled.article`
   margin: 0 auto;
-
-  // 1366px
-  @media screen and (min-width: 85.375rem) {
-    //max-width: 76.875rem;
-  }
 `;
 
 export const Card = styled(Link)`
@@ -20,8 +15,7 @@ export const Card = styled(Link)`
     text-decoration: none;
   }
 
-  // 1024px
-  @media screen and (min-width: 64rem) {
+  @media screen and (min-width: 992px) {
     flex-direction: row;
   }
 `;
@@ -36,13 +30,8 @@ export const Banner = styled.img`
 
   // Disable image dragging
   -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
 
-  // 1024px
-  @media screen and (min-width: 64rem) {
+  @media screen and (min-width: 992px) {
     border-radius: 0.625rem 0 0 0.625rem;
     object-fit: cover;
     height: 100%;
@@ -55,8 +44,7 @@ export const Information = styled.div`
   background-color: #fff;
   filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.075));
 
-  // 1024px
-  @media screen and (min-width: 64rem) {
+  @media screen and (min-width: 992px) {
     border-radius: 0 0.625rem 0.625rem 0;
     height: 100%;
   }
@@ -64,4 +52,8 @@ export const Information = styled.div`
 
 export const InformationHeading = styled.h3`
   margin-bottom: 0.75rem;
+`;
+
+export const Summary = styled.p`
+  margin-bottom: 0;
 `;

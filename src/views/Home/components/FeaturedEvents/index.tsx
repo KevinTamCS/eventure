@@ -17,7 +17,7 @@ const FeaturedEvents: React.FC<Props> = (props) => {
       <FeaturedEvent
         banner={eventBanner}
         bannerAlt="My awesome event"
-        title="My Awesome Event"
+        title="My Awesome Event With Two Lines"
         organizerName="John Doe"
         organizerImage={organizerImage}
         startTime={new Date('January 1, 2021 10:00 AM')}

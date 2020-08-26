@@ -9,6 +9,7 @@ import {
   FeaturedEventContainer,
   Information,
   InformationHeading,
+  Summary,
 } from './styles';
 
 interface Props {
@@ -46,7 +47,7 @@ const FeaturedEvent: React.FC<Props> = (props) => {
               <InformationHeading>{title}</InformationHeading>
               <Organizer name={organizerName} image={organizerImage} />
               <Time startTime={startTime} endTime={endTime} />
-              <p>{summary}</p>
+              <Summary>{summary}</Summary>
             </Information>
           </Col>
         </Row>
