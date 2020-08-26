@@ -1,32 +1,29 @@
 import styled from 'styled-components/macro';
+import Col from 'react-bootstrap/Col';
 
-export const LandingContainer = styled.section`
+export const LandingSection = styled.section`
   margin: 0 auto;
-  padding-bottom: 4rem;
-  display: flex;
-  flex-direction: column;
+  padding: 2rem 6.25vw 4rem;
 
-  // 1024px
-  @media screen and (min-width: 64rem) {
-    padding: 2rem 0 6rem;
-    flex-direction: row;
-    justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    padding: 3vw 3vw 4rem;
+  }
+
+  @media screen and (min-width: 992px) {
+    padding: 3rem 0 6rem;
   }
 `;
 
-export const Content = styled.div`
-  // 768px
+export const ContentCol = styled(Col)`
   @media screen and (min-width: 768px) {
     width: 70%;
   }
 
-  // 1024px
   @media screen and (min-width: 992px) {
     align-self: center;
     width: 50%;
   }
 
-  // 1366px
   @media screen and (min-width: 1200px) {
     width: 40%;
   }
@@ -44,17 +41,19 @@ export const Description = styled.p`
   margin-bottom: 1.5rem;
 `;
 
-export const Art = styled.img`
+export const ArtCol = styled(Col)`
   display: none;
 
-  // 1024px
-  @media screen and (min-width: 64rem) {
-    display: block;
-    width: 40%;
+  @media screen and (min-width: 992px) {
+    display: flex;
+    justify-content: flex-end;
+  }
+`;
 
-    // 1366px
-    @media screen and (min-width: 85.375rem) {
-      width: 25rem;
-    }
+export const Art = styled.img`
+  width: 80%;
+
+  @media screen and (min-width: 1200px) {
+    width: 60%;
   }
 `;
