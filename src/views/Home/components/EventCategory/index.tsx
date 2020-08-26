@@ -1,7 +1,7 @@
 import React from 'react';
 import Event from 'components/Event';
 import eventBanner from 'assets/dev/event-banner.jpg';
-import { EventCategoryContainer, Heading, EventsContainer } from './styles';
+import { EventCategorySection, Heading, EventsContainer } from './styles';
 
 interface Props {
   title: string;
@@ -24,10 +24,10 @@ const EventCategory: React.FC<Props> = (props) => {
   }
 
   return (
-    <EventCategoryContainer>
+    <EventCategorySection>
       <Heading>{title}</Heading>
       <EventsContainer>{events}</EventsContainer>
-    </EventCategoryContainer>
+    </EventCategorySection>
   );
 };
 

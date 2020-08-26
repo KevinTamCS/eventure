@@ -1,10 +1,11 @@
 import styled from 'styled-components/macro';
 
-export const EventCategoryContainer = styled.section`
+export const EventCategorySection = styled.section`
   margin: 0 auto;
+  padding: 1rem 0;
 
   @media screen and (min-width: 1200px) {
-    padding: 0 2.5rem;
+    padding: 1.5rem 2.5rem 0;
   }
 
   @media screen and (min-width: 1280px) {
@@ -27,7 +28,7 @@ export const Heading = styled.h2`
 export const EventsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 1rem 6.25vw 3rem;
+  padding: 1rem 6.25vw;
 
   overflow-x: auto;
   overflow-y: hidden;
@@ -40,10 +41,10 @@ export const EventsContainer = styled.div`
   }
 
   @media screen and (min-width: 992px) {
-    padding: 1rem 2.75rem 3rem;
+    padding: 1rem 2.75rem;
   }
 
   @media screen and (min-width: 1200px) {
-    padding: 1rem 1rem 3rem;
+    padding: 1rem;
   }
 `;
