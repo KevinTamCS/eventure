@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { Container, Icon, Text } from './styles';
+import { TimeDiv, Icon, Text } from './styles';
 import clockIcon from 'assets/icons/clock.svg';
 
 interface Props {
@@ -16,7 +16,7 @@ const Time: React.FC<Props> = (props) => {
   const formattedEndTime = moment(endTime).format('h:mm A');
 
   return (
-    <Container>
+    <TimeDiv>
       <Icon src={clockIcon} alt="Event time" />
       <div>
         <Text>{formattedStartDate}</Text>
@@ -24,7 +24,7 @@ const Time: React.FC<Props> = (props) => {
           {formattedStartTime} – {formattedEndTime}
         </Text>
       </div>
-    </Container>
+    </TimeDiv>
   );
 };
 

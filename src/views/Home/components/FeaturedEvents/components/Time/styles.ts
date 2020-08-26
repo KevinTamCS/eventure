@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const Container = styled.div`
+export const TimeDiv = styled.div`
   display: flex;
   margin-bottom: 1.5rem;
 `;

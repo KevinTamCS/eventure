@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const OrganizerContainer = styled.div`
+export const OrganizerDiv = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 0.75rem;
