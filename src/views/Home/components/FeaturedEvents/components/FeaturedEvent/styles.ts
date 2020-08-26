@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 
 export const FeaturedEventArticle = styled.article`
   margin: 0 auto;
+
+  @media screen and (min-width: 1200px) {
+    max-width: 1050px;
+  }
 `;
 
 export const StyledLink = styled(Link)`
