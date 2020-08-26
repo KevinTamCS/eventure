@@ -9,21 +9,21 @@ import { StyledHeader, NavbarCollapse } from './style';
 const Header = () => {
   return (
     <StyledHeader>
-      <Container>
-        <Navbar
-          className="justify-content-between"
-          fixed="top"
-          bg="light"
-          expand="md"
-          collapseOnSelect
-        >
+      <Navbar
+        className="justify-content-between"
+        fixed="top"
+        bg="light"
+        expand="lg"
+        collapseOnSelect
+      >
+        <Container>
           <Logo />
           <Search />
           <NavbarCollapse>
             <Links />
           </NavbarCollapse>
-        </Navbar>
-      </Container>
+        </Container>
+      </Navbar>
     </StyledHeader>
   );
 };
