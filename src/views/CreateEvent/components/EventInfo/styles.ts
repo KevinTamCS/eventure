@@ -14,10 +14,6 @@ export const EventInfoSection = styled.section`
   @media screen and (min-width: 992px) {
     max-width: 65%;
   }
-
-  @media screen and (min-width: 1200px) {
-    max-width: 55%;
-  }
 `;
 
 export const Fieldset = styled.fieldset`
