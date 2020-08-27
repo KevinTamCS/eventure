@@ -19,8 +19,7 @@ const GlobalStyle = createGlobalStyle`
       font-size: 1.75rem;
     }
   
-    // 700px
-    @media screen and (min-width: 43.75rem) {
+    @media screen and (min-width: 768px) {
       h1 {
         font-size: 3rem;
       }
