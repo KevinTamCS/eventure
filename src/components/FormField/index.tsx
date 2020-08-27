@@ -14,6 +14,9 @@ interface Props {
   description?: string;
   placeholder?: string;
   required?: boolean;
+  formSection?: string;
+  component?: React.Component;
+  onChange: (event: React.ChangeEvent) => void;
   className?: string;
 }
 
@@ -25,17 +28,26 @@ const FormField: React.FC<Props> = (props) => {
     description,
     placeholder,
     required = false,
+    formSection,
+    component,
+    onChange,
     className,
   } = props;
 
+  const fieldName = formSection ? `${formSection}.${name}` : name;
+  const fieldId = formSection ? `${formSection}-${name}` : name;
+
   return (
     <FormFieldContainer className={className}>
-      <Label htmlFor={name}>{label}</Label>
+      <Label htmlFor={fieldId}>{label}</Label>
       {description ? <Description>{description}</Description> : ''}
       <StyledField
+        name={fieldName}
+        id={fieldId}
         type={type}
-        name={name}
         placeholder={placeholder}
+        component={component}
+        onChange={onChange}
         required={required}
       />
       <StyledErrorMessage name={name} />
