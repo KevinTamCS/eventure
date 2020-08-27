@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 
 export const LandingSection = styled.section`
   margin: 0 auto;
-  padding: 2rem 6.25vw 4rem;
+  padding: 2rem 0 4rem;
 
   @media screen and (min-width: 768px) {
     padding: 3vw 3vw 4rem;
