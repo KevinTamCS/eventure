@@ -12,7 +12,7 @@ export interface CreateEventForm {
     organizerName?: string;
     category?: EventCategories;
     format?: Formats;
-    language?: string; // enum of languages
+    language?: string;
     tags?: string[];
   };
   timeAndDate: {
@@ -20,7 +20,7 @@ export interface CreateEventForm {
     startTime: Date;
     endDate: Date;
     endTime: Date;
-    timeZone: string; // enum of timezones
+    timeZone: string;
   };
   banner: {
     bannerImage?: File;
