@@ -16,6 +16,7 @@ interface Props {
     label: string;
   }[];
   placeholder?: string;
+  required?: boolean;
   formSection?: string;
   onChange?: (option: ValueType<OptionTypeBase>) => void;
 }
@@ -27,6 +28,7 @@ const LabeledSelect: React.FC<Props> = (props) => {
     label,
     options,
     placeholder,
+    required,
     formSection,
     onChange,
   } = props;
@@ -44,6 +46,7 @@ const LabeledSelect: React.FC<Props> = (props) => {
           id={fieldId}
           options={options}
           placeholder={placeholder}
+          required={required}
           onChange={onChange}
           classNamePrefix="react-select"
         />
@@ -55,6 +58,7 @@ const LabeledSelect: React.FC<Props> = (props) => {
           id={fieldId}
           options={options}
           placeholder={placeholder}
+          required={required}
           onChange={onChange}
           classNamePrefix="react-select"
           isMulti

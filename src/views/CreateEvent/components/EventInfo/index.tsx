@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { FormikProps } from 'formik';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import updateFormikForm from 'utils/updateFormikForm';
 import FormField from 'components/FormField';
 import LabeledSelect from 'components/LabeledSelect';
-import { CreateEventForm } from '../../index';
+import { EventForm } from '../../index';
 import {
   eventCategoryOptions,
   formatOptions,
@@ -12,54 +13,12 @@ import {
   OrganizerOptions,
   Organizers,
 } from '../../eventMetadata';
-import {
-  EventInfoSection,
-  Fieldset,
-  Legend,
-  OrganizerNameFormField,
-  StyledCol,
-} from './styles';
-import { OptionTypeBase } from 'react-select';
+import { OrganizerNameFormField } from './styles';
+import { Fieldset, FormSection, Legend, StyledCol } from '../../styles';
 
 interface Props {
-  formikProps: FormikProps<CreateEventForm>;
+  formikProps: FormikProps<EventForm>;
 }
-
-/**
- * Updates a Formik form field from a react-select menu given the Formik form props and the react-select menu option(s).
- * @param formikProps - The Formik form props.
- * @param option - The react-select menu option(s).
- * @param formSection - The section of the form that the field is in.
- * @param fieldName - The name of the field to update.
- */
-const updateFormikForm = (
-  formikProps: FormikProps<CreateEventForm>,
-  option: OptionTypeBase | null | undefined,
-  formSection: string,
-  fieldName: string
-): void => {
-  // Check if option is null or undefined
-  if (option) {
-    // Check if option is a single or multi select menu
-    if (Array.isArray(option)) {
-      // Multi select menu
-      const optionObject = option as Record<string, unknown>[];
-
-      const options: string[] = [];
-      optionObject.forEach((option: Record<string, unknown>) => {
-        options.push(option.value as string);
-      });
-      formikProps.setFieldValue(`${formSection}.${fieldName}`, options);
-    } else {
-      // Single select menu
-      const optionObject = option as Record<string, unknown>;
-      formikProps.setFieldValue(
-        `${formSection}.${fieldName}`,
-        optionObject.value
-      );
-    }
-  }
-};
 
 const EventInfo: React.FC<Props> = (props) => {
   const { formikProps } = props;
@@ -81,7 +40,7 @@ const EventInfo: React.FC<Props> = (props) => {
   const [organizer, setOrganizer] = useState<Organizers>();
 
   return (
-    <EventInfoSection>
+    <FormSection>
       <Fieldset>
         <Legend>Event Info</Legend>
 
@@ -189,7 +148,7 @@ const EventInfo: React.FC<Props> = (props) => {
           }}
         />
       </Fieldset>
-    </EventInfoSection>
+    </FormSection>
   );
 };
 

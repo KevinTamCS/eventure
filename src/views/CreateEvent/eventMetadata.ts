@@ -1,4 +1,5 @@
 import { languages } from 'countries-list';
+import timezones, { Timezone } from 'timezones.json';
 
 // Organizers
 export enum Organizers {
@@ -104,10 +105,24 @@ interface LanguageOptions {
 }
 
 export const languageOptions: LanguageOptions[] = [];
-
 Object.entries(languages).forEach(([languageCode, language]) => {
   languageOptions.push({
     value: languageCode,
     label: language.name,
+  });
+});
+
+// Time Zones
+// There are too many time zones to manually add to an enum
+interface TimeZoneOptions {
+  value: Timezone;
+  label: string;
+}
+
+export const timeZoneOptions: TimeZoneOptions[] = [];
+timezones.forEach((timezone) => {
+  timeZoneOptions.push({
+    value: timezone,
+    label: timezone.text,
   });
 });
