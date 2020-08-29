@@ -6,7 +6,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import NavLink from '../NavLink';
 import { NewEventNavLink } from './styles';
 
-const Links = () => {
+const Links = (): JSX.Element => {
   const history = useHistory();
 
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
