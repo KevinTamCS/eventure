@@ -9,7 +9,7 @@ import {
 interface CommonProps {
   centered?: boolean;
   className?: string;
-  children?: any;
+  children?: unknown;
 }
 
 export interface AnchorProps extends CommonProps {
