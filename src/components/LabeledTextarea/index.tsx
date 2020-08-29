@@ -9,20 +9,18 @@ import {
 
 interface Props {
   name: string;
-  type?: string;
+  type: string;
   label?: string;
   description?: string;
   placeholder?: string;
   required?: boolean;
   formSection?: string;
-  component?: React.Component | string;
-  rows?: number,
-  cols?: number,
+  component?: React.Component;
   onChange: (event: React.ChangeEvent) => void;
   className?: string;
 }
 
-const FormField: React.FC<Props> = (props) => {
+const LabeledTextarea: React.FC<Props> = (props) => {
   const {
     name,
     type,
@@ -32,8 +30,6 @@ const FormField: React.FC<Props> = (props) => {
     required = false,
     formSection,
     component,
-    rows,
-    cols,
     onChange,
     className,
   } = props;
@@ -51,8 +47,6 @@ const FormField: React.FC<Props> = (props) => {
         type={type}
         placeholder={placeholder}
         component={component}
-        rows={rows}
-        cols={cols}
         onChange={onChange}
         required={required}
       />
@@ -61,4 +55,4 @@ const FormField: React.FC<Props> = (props) => {
   );
 };
 
-export default FormField;
+export default LabeledTextarea;
