@@ -1,10 +1,9 @@
 import styled from 'styled-components/macro';
-import Row from 'react-bootstrap/cjs/Row';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { Button } from 'components/Button';
 
-export const Description = styled.p`
-  //margin-bottom: 0;
-`;
+export const Description = styled.p``;
 
 export const BannerContainer = styled.div`
   margin: 0 auto;
@@ -27,7 +26,7 @@ export const BannerContainer = styled.div`
   &:active {
     box-shadow: 0 0 5px #cccccc;
   }
-  
+
   &:focus {
     outline: none;
     box-shadow: 0 0 3px #939393;
@@ -66,10 +65,6 @@ export const UploadText = styled.p`
 
 export const FileTypeText = styled.p``;
 
-export const UploadSuccessText = styled.p`
-  margin-bottom: 0;
-`;
-
 export const UploadedImageContainer = styled.div`
   position: relative;
 
@@ -99,29 +94,33 @@ export const UploadedImage = styled.img`
 `;
 
 export const EditBannerControls = styled(Row)`
-  margin: 0 0.1rem;
-  padding-top: 1.25rem;
+  & > div {
+    padding: 0 1rem;
+  }
+`;
 
-  button {
-    width: 100%;
+export const ButtonCol = styled(Col)`
+  &&& {
+    padding: 0;
   }
 `;
 
 export const ChangeBannerButton = styled(Button)`
-  &&&:hover {
-    box-shadow: none;
-  }
+  margin: 1.25rem auto 1rem;
 
+  &&&:hover,
   &&&&:active {
     box-shadow: none;
   }
 
-  &&&:focus {
-    //box-shadow: none;
+  @media screen and (min-width: 768px) {
+    width: 90%;
+    margin-bottom: 0;
   }
 `;
 
 export const RemoveBannerButton = styled(Button)`
+  margin: 0 auto;
   background-color: #fc5050;
 
   &&&:hover {
@@ -137,5 +136,10 @@ export const RemoveBannerButton = styled(Button)`
   &&&:focus {
     box-shadow: 0 0 0 3px lightcoral;
     background-color: #f82222;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 90%;
+    margin-top: 1.25rem;
   }
 `;

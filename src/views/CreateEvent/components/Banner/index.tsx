@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FormikProps } from 'formik';
 import Dropzone from 'react-dropzone';
-import Col from 'react-bootstrap/Col';
 import { ToastContainer, toast } from 'react-toastify';
 import { EventForm } from '../../index';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,7 +8,7 @@ import addImageIcon from 'assets/icons/add-image.svg';
 import { Fieldset, FormSection, Legend } from '../../styles';
 import {
   AddImageIcon,
-  BannerContainer,
+  BannerContainer, ButtonCol,
   ChangeBannerButton,
   Description,
   DropzoneIconAndText,
@@ -19,7 +18,7 @@ import {
   RemoveBannerButton,
   UploadedImage,
   UploadedImageContainer,
-  UploadText,
+  UploadText
 } from './styles';
 
 interface Props {
@@ -136,17 +135,17 @@ const Banner: React.FC<Props> = (props) => {
               </BannerContainer>
               {/* Show banner edit controls only if there is a banner already uploaded */}
               {isFileAccepted && (
-                <EditBannerControls>
-                  <Col md>
-                    <ChangeBannerButton onClick={open} centered>
+                <EditBannerControls noGutters>
+                  <ButtonCol md>
+                    <ChangeBannerButton onClick={open}>
                       Change Banner
                     </ChangeBannerButton>
-                  </Col>
-                  <Col md>
-                    <RemoveBannerButton onClick={removeBanner} centered>
+                  </ButtonCol>
+                  <ButtonCol md>
+                    <RemoveBannerButton onClick={removeBanner}>
                       Remove Banner
                     </RemoveBannerButton>
-                  </Col>
+                  </ButtonCol>
                 </EditBannerControls>
               )}
             </>
