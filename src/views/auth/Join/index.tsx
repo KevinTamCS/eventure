@@ -36,32 +36,43 @@ const Join = () => {
           history.push('/welcome');
         }}
       >
-        <AuthForm>
-          <AuthFormField
-            name="firstName"
-            type="text"
-            label="First Name"
-            required
-          />
+        {(formikProps) => (
+          <AuthForm>
+            <AuthFormField
+              name="firstName"
+              type="text"
+              label="First Name"
+              required
+              onChange={formikProps.handleChange}
+            />
 
-          <AuthFormField
-            name="lastName"
-            type="text"
-            label="Last Name"
-            required
-          />
+            <AuthFormField
+              name="lastName"
+              type="text"
+              label="Last Name"
+              required
+              onChange={formikProps.handleChange}
+            />
 
-          <AuthFormField name="email" type="email" label="Email" required />
+            <AuthFormField
+              name="email"
+              type="email"
+              label="Email"
+              required
+              onChange={formikProps.handleChange}
+            />
 
-          <AuthFormField
-            name="password"
-            type="password"
-            label="Password"
-            required
-          />
+            <AuthFormField
+              name="password"
+              type="password"
+              label="Password"
+              required
+              onChange={formikProps.handleChange}
+            />
 
-          <AuthButton value="Get Started" centered />
-        </AuthForm>
+            <AuthButton value="Get Started" centered />
+          </AuthForm>
+        )}
       </Formik>
 
       <OAuthSeparator>or</OAuthSeparator>
