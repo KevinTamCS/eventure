@@ -2,11 +2,11 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
 import {
+  AuthButton,
   AuthContainer,
-  Heading,
   AuthForm,
   AuthFormField,
-  AuthButton,
+  Heading,
   OAuthSeparator,
 } from 'views/auth/styles';
 
@@ -28,18 +28,27 @@ const Login = () => {
           history.push('/');
         }}
       >
-        <AuthForm>
-          <AuthFormField name="email" type="email" label="Email" required />
+        {(formikProps) => (
+          <AuthForm>
+            <AuthFormField
+              name="email"
+              type="email"
+              label="Email"
+              required
+              onChange={formikProps.handleChange}
+            />
 
-          <AuthFormField
-            name="password"
-            type="password"
-            label="Password"
-            required
-          />
+            <AuthFormField
+              name="password"
+              type="password"
+              label="Password"
+              required
+              onChange={formikProps.handleChange}
+            />
 
-          <AuthButton value="Log In" centered />
-        </AuthForm>
+            <AuthButton value="Log In" centered />
+          </AuthForm>
+        )}
       </Formik>
 
       <OAuthSeparator>or</OAuthSeparator>

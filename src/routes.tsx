@@ -4,10 +4,17 @@ import Home from 'views/Home';
 import Join from 'views/auth/Join';
 import Login from 'views/auth/Login';
 import Welcome from 'views/Welcome';
+import CreateEvent from './views/CreateEvent';
 
-const Routes = () => {
+const Routes = (): JSX.Element => {
   return (
     <Switch>
+      <Route path="/events/new">
+        <CreateEvent />
+      </Route>
+      <Route path="/events">
+        <Home />
+      </Route>
       <Route path="/welcome">
         <Welcome />
       </Route>
