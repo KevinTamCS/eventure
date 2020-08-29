@@ -19,7 +19,7 @@ const Details: React.FC<Props> = (props) => {
           name="summary"
           type="text"
           label="Summary"
-          placeholder="A short summary of your event in under 160 characters."
+          placeholder="Up to 160 characters at most."
           formSection="details"
           onChange={formikProps.handleChange}
         />
