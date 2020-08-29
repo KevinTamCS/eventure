@@ -102,6 +102,7 @@ export const TimeContents = styled.div`
 `;
 
 export const AddToCalendar = styled.a`
+  font-size: 1.4rem;
   margin-left: 3.5rem;
 `;
 
