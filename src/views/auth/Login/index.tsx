@@ -10,7 +10,7 @@ import {
   OAuthSeparator,
 } from 'views/auth/styles';
 
-const Login = () => {
+const Login = (): JSX.Element => {
   const history = useHistory();
 
   return (

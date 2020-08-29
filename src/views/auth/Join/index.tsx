@@ -10,7 +10,7 @@ import {
   OAuthSeparator,
 } from 'views/auth/styles';
 
-const Join = () => {
+const Join = (): JSX.Element => {
   const history = useHistory();
 
   return (
