@@ -87,6 +87,7 @@ const EventInfo: React.FC<Props> = (props) => {
               type="text"
               placeholder="Organizer Name*"
               formSection="eventInfo"
+              required
               onChange={formikProps.handleChange}
             />
           )}
