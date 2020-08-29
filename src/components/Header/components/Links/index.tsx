@@ -36,7 +36,7 @@ const Links = () => {
         <NavLink to="/">Discover</NavLink>
         <NavLink to="/saved">Saved</NavLink>
         <NavLink to="/registered">Registered</NavLink>
-        <NewEventNavLink to="/events/create">+ New Event</NewEventNavLink>
+        <NewEventNavLink to="/events/new">+ New Event</NewEventNavLink>
         <Button variant="primary" onClick={logOutUser}>
           Log Out
         </Button>
