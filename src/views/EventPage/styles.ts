@@ -15,7 +15,7 @@ export const BannerAndInfoRow = styled(Row)`
   margin-bottom: 1.5rem;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   @media screen and (min-width: 992px) {
@@ -35,10 +35,10 @@ export const InfoSection = styled.section`
   justify-content: space-between;
 
   height: 100%;
-  padding: 6.25vw;
+  padding: 6.25vw 6.25vw 0;
 
   @media screen and (min-width: 768px) {
-    padding: 5vw;
+    padding: 5vw 5vw 0;
   }
 
   @media screen and (min-width: 992px) {
