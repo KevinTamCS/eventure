@@ -1,11 +1,20 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { SubmitButton } from 'components/Button';
 import EventInfo from './components/EventInfo';
-import { CreateEventContainer, Heading, StyledForm } from './styles';
+import TimeAndDate from './components/TimeAndDate';
+import Banner from './components/Banner';
+import Details from './components/Details';
 import { EventCategories, Formats } from './eventMetadata';
+import {
+  CreateEventContainer,
+  CreateEventForm,
+  FormButtonsContainer,
+  Heading,
+  SaveForLaterButton,
+  SubmitFormButton,
+} from './styles';
 
-export interface CreateEventForm {
+export interface EventForm {
   eventInfo: {
     title: string;
     organizer: string;
@@ -20,7 +29,7 @@ export interface CreateEventForm {
     startTime: Date;
     endDate: Date;
     endTime: Date;
-    timeZone: string;
+    timeZone: Record<string, unknown>;
   };
   banner: {
     bannerImage?: File;
@@ -32,48 +41,65 @@ export interface CreateEventForm {
 }
 
 const CreateEvent: React.FC = (): JSX.Element => {
-  const initialValues: CreateEventForm = {
+  const initialValues: EventForm = {
     eventInfo: {
       title: '',
       organizer: '',
-      organizerName: undefined,
+      organizerName: '',
       category: undefined,
       format: undefined,
       language: undefined,
       tags: undefined,
     },
     timeAndDate: {
-      startDate: new Date(0),
-      startTime: new Date(0),
-      endDate: new Date(0),
-      endTime: new Date(0),
-      timeZone: '',
+      startDate: new Date(),
+      startTime: new Date(),
+      endDate: new Date(),
+      endTime: new Date(),
+      timeZone: {},
     },
     banner: {
       bannerImage: undefined,
     },
     details: {
-      summary: undefined,
-      description: undefined,
+      summary: '',
+      description: '',
     },
   };
 
   return (
     <CreateEventContainer fluid="lg">
       <Heading>Create New Event</Heading>
+
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => {
           console.log('Submitted form');
           console.log(JSON.stringify(values, null, 1));
+          console.log(values.banner.bannerImage);
         }}
       >
-        {(formikProps) => (
-          <StyledForm>
-            <EventInfo formikProps={formikProps}/>
-            <SubmitButton value="Continue" />
-          </StyledForm>
-        )}
+        {(formikProps) => {
+          const saveEventForLater = (): void => {
+            console.log('Saving event for later');
+            console.log(JSON.stringify(formikProps.values, null, 1));
+          };
+
+          return (
+            <CreateEventForm>
+              <EventInfo formikProps={formikProps} />
+              <TimeAndDate formikProps={formikProps} />
+              <Banner formikProps={formikProps} />
+              <Details formikProps={formikProps} />
+              <FormButtonsContainer>
+                <SubmitFormButton value="Create Event" />
+                <SaveForLaterButton onClick={saveEventForLater}>
+                  Save For Later
+                </SaveForLaterButton>
+              </FormButtonsContainer>
+            </CreateEventForm>
+          );
+        }}
       </Formik>
     </CreateEventContainer>
   );
