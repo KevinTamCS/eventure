@@ -11,7 +11,7 @@ export const EventPageContainer = styled(Container)`
   }
 `;
 
-export const EventBannerAndInfoRow = styled(Row)`
+export const BannerAndInfoRow = styled(Row)`
   margin-bottom: 1.5rem;
 
   @media screen and (min-width: 768px) {
@@ -110,7 +110,7 @@ export const RegisterButton = styled(Button)`
   background-color: #4642f4;
 `;
 
-export const EventDetailsArticle = styled.article`
+export const DetailsArticle = styled.article`
   padding: 0 6.25vw 6.25vw;
 
   @media screen and (min-width: 768px) {
@@ -122,12 +122,12 @@ export const EventDetailsArticle = styled.article`
   }
 `;
 
-export const EventSummary = styled.h3`
+export const Summary = styled.h3`
   padding-bottom: 0.5rem;
   font-size: 1.5rem;
   font-weight: bold;
 `;
 
-export const EventDescription = styled.p`
+export const Description = styled.p`
   font-size: 1.125rem;
 `;

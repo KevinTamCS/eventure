@@ -4,11 +4,12 @@ import Col from 'react-bootstrap/Col';
 import {
   AddToCalendar,
   Banner,
-  EventBannerAndInfoRow,
-  EventDetailsArticle,
+  BannerAndInfoRow,
+  DetailsArticle,
   EventPageContainer,
-  EventSummary,
-  Heading, Information,
+  Summary,
+  Heading,
+  Information,
   InfoSection,
   OrganizerImage,
   OrganizerInfo,
@@ -16,7 +17,8 @@ import {
   RegisterButton,
   TimeContents,
   TimeIcon,
-  TimeInfo
+  TimeInfo,
+  Description,
 } from './styles';
 import eventBanner from 'assets/dev/event-banner.jpg';
 import organizerImage from 'assets/dev/organizer.jpg';
@@ -30,7 +32,7 @@ const EventPage: React.FC = (): JSX.Element => {
   return (
     <EventPageContainer fluid="lg">
       {/* Banner and Event Info */}
-      <EventBannerAndInfoRow noGutters>
+      <BannerAndInfoRow noGutters>
         <Col lg={8}>
           <Banner src={eventBanner} alt="Event banner alt text" />
         </Col>
@@ -56,17 +58,34 @@ const EventPage: React.FC = (): JSX.Element => {
             </RegisterButton>
           </InfoSection>
         </Col>
-      </EventBannerAndInfoRow>
+      </BannerAndInfoRow>
 
       {/* Event Summary and Description */}
       <Row noGutters>
         <Col lg={8}>
-          <EventDetailsArticle>
-            <EventSummary>
+          <DetailsArticle>
+            <Summary>
               A summary of my awesome event goes here. It should be under 160
               characters long.
-            </EventSummary>
-          </EventDetailsArticle>
+            </Summary>
+            <Description>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              ornare ante ut nunc varius tristique. Donec semper elit semper,
+              sagittis lacus in, eleifend nunc. Sed ut blandit nisl, ut vehicula
+              tellus. Vivamus luctus ex quis justo vulputate elementum. Nam
+              aliquet sit amet sapien sed aliquam. Proin gravida velit vitae
+              metus ultrices ullamcorper. Fusce id turpis ut sem finibus tempor.
+              Cras tempus, est sit amet bibendum vestibulum, mi mauris suscipit
+              velit, vel ultricies erat massa vitae nisi. Morbi vitae lacus at
+              tellus iaculis rutrum. Curabitur cursus enim at dui dignissim
+              dignissim. Quisque dignissim tincidunt diam. Curabitur gravida
+              auctor augue, non feugiat dolor pretium vitae. Praesent tristique
+              ipsum sed porta pretium. Integer volutpat fringilla ultricies.
+              Cras pharetra pulvinar quam, at tempus erat scelerisque dictum.
+              Nulla tempus, risus vitae auctor accumsan, magna lacus luctus
+              lacus, ut elementum ligula turpis vitae lacus.
+            </Description>
+          </DetailsArticle>
         </Col>
       </Row>
     </EventPageContainer>
