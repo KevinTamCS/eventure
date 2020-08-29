@@ -122,21 +122,17 @@ const EventInfo: React.FC<Props> = (props) => {
             />
           </Col>
         </Row>
-        <Row>
-          <Col md={6}>
-            <LabeledSelect
-              name="language"
-              type="Select"
-              label="Language"
-              options={languageOptions}
-              placeholder="Language..."
-              formSection="eventInfo"
-              onChange={(option) =>
-                updateFormikForm(formikProps, option, 'eventInfo', 'language')
-              }
-            />
-          </Col>
-        </Row>
+        <LabeledSelect
+          name="language"
+          type="Select"
+          label="Language"
+          options={languageOptions}
+          placeholder="Language..."
+          formSection="eventInfo"
+          onChange={(option) =>
+            updateFormikForm(formikProps, option, 'eventInfo', 'language')
+          }
+        />
 
         <LabeledSelect
           name="tags"
