@@ -7,7 +7,7 @@ export const LandingSection = styled.section`
   padding: 2rem 0 4rem;
 
   @media screen and (min-width: 768px) {
-    padding: 3vw 3vw 4rem;
+    padding: 3vw 0 4rem;
   }
 
   @media screen and (min-width: 992px) {
