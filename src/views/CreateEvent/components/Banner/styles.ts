@@ -16,9 +16,8 @@ export const BannerContainer = styled.div`
   transition: 0.2s;
   transition-timing-function: ease-in-out;
 
-  // Override 1.5rem padding-bottom
   &&& {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   &:hover {
