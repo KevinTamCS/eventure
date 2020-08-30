@@ -18,6 +18,8 @@ const UserMenuDropdown: React.FC<Props> = (props): JSX.Element => {
 
   const history = useHistory();
 
+  // Planning on moving this to a global Redux store
+  // eslint-disable-next-line no-unused-vars
   const [isLoggedIn, setLoggedIn] = useState<boolean>(
     JSON.parse(localStorage.getItem('isLoggedIn') as string)
   );
