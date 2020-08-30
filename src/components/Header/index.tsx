@@ -1,8 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
 import Logo from './components/Logo';
-import Search from './components/Search';
 import Links from './components/Links';
 import { StyledHeader, NavbarCollapse, StyledNavbar } from './style';
 
