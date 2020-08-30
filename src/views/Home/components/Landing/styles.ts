@@ -30,7 +30,7 @@ export const ContentCol = styled(Col)`
   }
 
   @media screen and (min-width: 1200px) {
-    width: 40%;
+    width: 45%;
   }
 `;
 
