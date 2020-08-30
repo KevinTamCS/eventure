@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Logo from './components/Logo';
 import Links from './components/Links';
 import { StyledHeader, NavbarCollapse, StyledNavbar } from './style';
 
-const Header = () => {
+const Header = (): JSX.Element => {
+  const location = useLocation();
+  useEffect(() => {
+    console.log(location.pathname);
+  }, [location]);
+
   return (
     <StyledHeader>
       <StyledNavbar
@@ -15,10 +21,11 @@ const Header = () => {
       >
         <Container>
           <Logo />
-          {/*<Search />*/}
-          <NavbarCollapse>
-            <Links />
-          </NavbarCollapse>
+          {!(location.pathname === '/welcome') && (
+            <NavbarCollapse>
+              <Links />
+            </NavbarCollapse>
+          )}
         </Container>
       </StyledNavbar>
     </StyledHeader>

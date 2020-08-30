@@ -1,33 +1,40 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import NavLink from '../NavLink';
 import {
   AuthButtons,
   LoginNavLink,
   NavLinkButton,
+  NavList,
   NewEventNavLink,
 } from './styles';
-import { Button } from 'components/Button';
+import UserMenu from 'components/UserMenu';
+import UserMenuDropdown from '../../../UserMenuDropdown';
 
 const Links = (): JSX.Element => {
-  const history = useHistory();
+  const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
+  // Planning on moving this to a global Redux store
+  // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
+  const [isLoggedIn, setLoggedIn] = useState<boolean>(
     JSON.parse(localStorage.getItem('isLoggedIn') as string)
   );
 
-  const logOutUser = (): void => {
-    console.log('Logging out user');
-    localStorage.setItem('isLoggedIn', JSON.stringify(false));
-    setIsLoggedIn(false);
-    history.push('/');
+  const toggleDropdownMenu = (): void => {
+    console.log('Toggling dropdown menu');
+
+    if (isDropdownOpen) {
+      // Close dropdown
+      setDropdownOpen(false);
+    } else {
+      // Open dropdown
+      setDropdownOpen(true);
+    }
   };
 
   if (!isLoggedIn) {
     return (
       <Nav>
-        {/*<NavLink to="/events">Discover</NavLink>*/}
         <AuthButtons>
           <LoginNavLink to="/login">Log In</LoginNavLink>
           <NavLinkButton to="/join">Sign Up</NavLinkButton>
@@ -37,11 +44,16 @@ const Links = (): JSX.Element => {
   } else {
     return (
       <Nav>
-        <NavLink to="/events">Discover</NavLink>
-        <NavLink to="/saved">Saved</NavLink>
-        <NavLink to="/registered">Registered</NavLink>
-        <NewEventNavLink to="/events/new">+ New Event</NewEventNavLink>
-        <Button onClick={logOutUser}>Log Out</Button>
+        <NavList>
+          <NavLink to="/events">Discover</NavLink>
+          <NavLink to="/saved">Saved</NavLink>
+          <NavLink to="/registered">Registered</NavLink>
+          <NewEventNavLink to="/events/new">+ New Event</NewEventNavLink>
+          <UserMenu onClick={toggleDropdownMenu} />
+        </NavList>
+        {isDropdownOpen && (
+          <UserMenuDropdown toggleDropdownMenu={toggleDropdownMenu} />
+        )}
       </Nav>
     );
   }

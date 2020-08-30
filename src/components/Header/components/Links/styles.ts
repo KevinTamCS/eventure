@@ -2,6 +2,11 @@ import styled from 'styled-components';
 import NavLink from '../NavLink';
 import { LinkButton } from 'components/Button';
 
+export const NavList = styled.ul`
+  display: flex;
+  margin-bottom: 0;
+`;
+
 export const NewEventNavLink = styled(NavLink)`
   &&& {
     color: #008aff;
