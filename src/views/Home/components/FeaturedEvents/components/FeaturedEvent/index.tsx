@@ -23,7 +23,7 @@ interface Props {
   summary?: string;
 }
 
-const FeaturedEvent: React.FC<Props> = (props) => {
+const FeaturedEvent: React.FC<Props> = (props): JSX.Element => {
   const {
     banner,
     bannerAlt,
@@ -37,7 +37,7 @@ const FeaturedEvent: React.FC<Props> = (props) => {
 
   return (
     <FeaturedEventArticle>
-      <StyledLink to="/event/:id">
+      <StyledLink to="/events/1">
         <Row noGutters>
           <Col lg={8}>
             <Banner src={banner} alt={bannerAlt} />
