@@ -59,7 +59,7 @@ export const Information = styled.div`
 `;
 
 export const Heading = styled.h1`
-  font-size: 2.25rem;
+  font-size: 2rem;
   margin: 0 0 1rem;
 `;
 
@@ -78,7 +78,7 @@ export const OrganizerImage = styled.img`
 
 export const OrganizerName = styled.h2`
   margin: 0 0 0 1rem;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: normal;
 `;
 
@@ -94,7 +94,7 @@ export const TimeIcon = styled.img`
 
 export const TimeContents = styled.div`
   margin-left: 1rem;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
 
   & > * {
     margin-bottom: 0;
@@ -102,7 +102,7 @@ export const TimeContents = styled.div`
 `;
 
 export const AddToCalendar = styled.a`
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   margin-left: 3.5rem;
 `;
 
