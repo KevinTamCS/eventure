@@ -1,11 +1,11 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
-import { StyledNavLink } from './styles';
+import { StyledLinkContainer, StyledNavLink } from './styles';
 
 interface Props {
   to: string;
   className?: string;
-  children?: any;
+  children?: unknown;
 }
 
 // Bootstrap Nav.Link wrapped around a LinkContainer for React Router.
@@ -13,9 +13,9 @@ const NavLink: React.FC<Props> = (props) => {
   const { to, className, children } = props;
 
   return (
-    <StyledNavLink to={to} className={className}>
-      <Nav.Link>{children}</Nav.Link>
-    </StyledNavLink>
+    <StyledLinkContainer to={to} className={className}>
+      <StyledNavLink>{children}</StyledNavLink>
+    </StyledLinkContainer>
   );
 };
 

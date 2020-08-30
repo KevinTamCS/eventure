@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
-import { LinkContainer } from 'react-router-bootstrap';
 import NavLink from '../NavLink';
-import { NewEventNavLink } from './styles';
+import {
+  AuthButtons,
+  LoginNavLink,
+  NavLinkButton,
+  NewEventNavLink,
+} from './styles';
+import { Button } from 'components/Button';
 
 const Links = (): JSX.Element => {
   const history = useHistory();
@@ -23,23 +27,21 @@ const Links = (): JSX.Element => {
   if (!isLoggedIn) {
     return (
       <Nav>
-        <NavLink to="/">Discover</NavLink>
-        <NavLink to="/login">Log In</NavLink>
-        <LinkContainer to="/join">
-          <Button variant="primary">Sign Up</Button>
-        </LinkContainer>
+        {/*<NavLink to="/events">Discover</NavLink>*/}
+        <AuthButtons>
+          <LoginNavLink to="/login">Log In</LoginNavLink>
+          <NavLinkButton to="/join">Sign Up</NavLinkButton>
+        </AuthButtons>
       </Nav>
     );
   } else {
     return (
       <Nav>
-        <NavLink to="/">Discover</NavLink>
+        <NavLink to="/events">Discover</NavLink>
         <NavLink to="/saved">Saved</NavLink>
         <NavLink to="/registered">Registered</NavLink>
         <NewEventNavLink to="/events/new">+ New Event</NewEventNavLink>
-        <Button variant="primary" onClick={logOutUser}>
-          Log Out
-        </Button>
+        <Button onClick={logOutUser}>Log Out</Button>
       </Nav>
     );
   }

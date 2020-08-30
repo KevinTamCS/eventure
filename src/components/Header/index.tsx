@@ -4,26 +4,25 @@ import Navbar from 'react-bootstrap/Navbar';
 import Logo from './components/Logo';
 import Search from './components/Search';
 import Links from './components/Links';
-import { StyledHeader, NavbarCollapse } from './style';
+import { StyledHeader, NavbarCollapse, StyledNavbar } from './style';
 
 const Header = () => {
   return (
     <StyledHeader>
-      <Navbar
+      <StyledNavbar
         className="justify-content-between"
         fixed="top"
-        bg="light"
         expand="lg"
         collapseOnSelect
       >
         <Container>
           <Logo />
-          <Search />
+          {/*<Search />*/}
           <NavbarCollapse>
             <Links />
           </NavbarCollapse>
         </Container>
-      </Navbar>
+      </StyledNavbar>
     </StyledHeader>
   );
 };
