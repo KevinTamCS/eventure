@@ -9,7 +9,7 @@ const Header = (): JSX.Element => {
   const location = useLocation();
   useEffect(() => {
     console.log(location.pathname);
-  }, []);
+  }, [location]);
 
   return (
     <StyledHeader>
