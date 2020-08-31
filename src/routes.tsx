@@ -6,12 +6,16 @@ import Login from 'views/auth/Login';
 import Welcome from 'views/Welcome';
 import CreateEvent from 'views/CreateEvent';
 import EventPage from 'views/EventPage';
+import EditEvent from './views/EditEvent';
 
 const Routes = (): JSX.Element => {
   return (
     <Switch>
       <Route path="/events/new">
         <CreateEvent />
+      </Route>
+      <Route path="/events/:id/edit">
+        <EditEvent />
       </Route>
       <Route path="/events/:id">
         <EventPage />
