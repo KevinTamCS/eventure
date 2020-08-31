@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { FormikProps } from 'formik';
 import Dropzone from 'react-dropzone';
 import { ToastContainer, toast } from 'react-toastify';
-import { EventForm } from '../../index';
-import 'react-toastify/dist/ReactToastify.css';
+import { EventForm } from 'components/EventEditor';
 import addImageIcon from 'assets/icons/add-image.svg';
+import 'react-toastify/dist/ReactToastify.css';
 import { Fieldset, FormSection, Legend } from '../../styles';
 import {
   AddImageIcon,
-  BannerContainer, ButtonCol,
+  BannerContainer,
+  ButtonCol,
   ChangeBannerButton,
   Description,
   DropzoneIconAndText,
@@ -18,7 +19,7 @@ import {
   RemoveBannerButton,
   UploadedImage,
   UploadedImageContainer,
-  UploadText
+  UploadText,
 } from './styles';
 
 interface Props {

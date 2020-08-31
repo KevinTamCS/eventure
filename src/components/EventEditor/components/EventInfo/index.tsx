@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import updateFormikForm from 'utils/updateFormikForm';
 import FormField from 'components/FormField';
 import LabeledSelect from 'components/LabeledSelect';
-import { EventForm } from '../../index';
+import { EventForm } from 'components/EventEditor';
 import {
   eventCategoryOptions,
   formatOptions,

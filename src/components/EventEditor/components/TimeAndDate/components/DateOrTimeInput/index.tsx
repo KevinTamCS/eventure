@@ -7,7 +7,7 @@ import {
 } from '@material-ui/pickers';
 import DateUtils from '@date-io/moment';
 import { FormikProps } from 'formik';
-import { EventForm } from '../../../../index';
+import { EventForm } from 'components/EventEditor';
 
 interface DateOrTimeInputProps {
   formikProps: FormikProps<EventForm>;

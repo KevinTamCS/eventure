@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components/macro';
+import styled, { createGlobalStyle } from 'styled-components/macro';
+import Container from 'react-bootstrap/Container';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -29,6 +30,22 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
+`;
+
+// Page Headings
+export const Heading = styled.h1`
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 6.25vw;
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 0.5rem;
+  }
+`;
+
+// Page Containers
+export const PageContainer = styled(Container)`
+  padding: 2rem 0;
 `;
 
 export default GlobalStyle;
