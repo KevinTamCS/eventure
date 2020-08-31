@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormikProps } from 'formik';
 import FormField from 'components/FormField';
-import { EventForm } from '../../index';
 import { Fieldset, FormSection, Legend } from '../../styles';
+import { EventForm } from 'components/EventEditor';
 
 interface Props {
   formikProps: FormikProps<EventForm>;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormikProps } from 'formik';
-import { EventForm } from '../../index';
+import { EventForm } from 'components/EventEditor';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import LabeledSelect from 'components/LabeledSelect';

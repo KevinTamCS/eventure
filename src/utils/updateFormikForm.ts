@@ -1,6 +1,6 @@
 import { FormikProps } from 'formik';
-import { EventForm } from '../views/CreateEvent';
 import { OptionTypeBase } from 'react-select';
+import { EventForm } from 'components/EventEditor';
 
 /**
  * Updates a Formik form field from a react-select menu given the Formik form props and the react-select menu option(s).
