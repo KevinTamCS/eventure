@@ -3,6 +3,7 @@ import { EventModel } from '../sequelize';
 
 const router: Router = Router();
 
+// Top events
 router.get('/', (req: Request, res: Response) => {
   console.log('Getting events...');
   try {
@@ -23,6 +24,41 @@ router.get('/', (req: Request, res: Response) => {
   }
 });
 
+// Get specific event
+router.get('/:id', (req: Request, res: Response) => {
+  console.log('Getting events...');
+  try {
+    const eventId: number = parseInt(req.params.id);
+
+    EventModel.findByPk(eventId)
+      .then((data) => {
+        if (data !== null) {
+          res.json(data);
+        } else {
+          res.status(404).send(`No event with event ID ${eventId} exists.`);
+        }
+      })
+      .catch((error: string) => {
+        console.error(`Could not get event data for event ID: ${eventId}`);
+        console.error(error);
+        res
+          .status(500)
+          .send(
+            `An error occurred while getting the event data for the event with ID: ${eventId}.`
+          );
+      });
+  } catch (error: unknown) {
+    console.error(`Could not get event data for event ID: ${req.params.id}.`);
+    console.error(error);
+    res
+      .status(500)
+      .send(
+        `An error occurred while getting the event data for the event with ID ${req.params.id}.`
+      );
+  }
+});
+
+// Create new event
 router.post('/', (req: Request, res: Response) => {
   console.log('Creating new event...');
 

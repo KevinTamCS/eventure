@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Event } from 'types';
 import {
   AddToCalendar,
   Banner,
@@ -23,32 +25,93 @@ import {
 import eventBanner from 'assets/dev/event-banner.jpg';
 import organizerImage from 'assets/dev/organizer.jpg';
 import timeIcon from 'assets/icons/clock.svg';
+import { API_URL } from '../../index';
 
 const registerForEvent = (): void => {
   console.log('Registered for event');
 };
 
+const emptyEvent: Event = {
+  title: 'Loading...',
+  organizer: 'Loading...',
+  startDateTime: new Date(0),
+  endDateTime: new Date(0),
+  summary: null,
+  description: null,
+  banner: null,
+  creationDateTime: new Date(0),
+  lastUpdateDateTime: new Date(0),
+};
+
 const EventPage: React.FC = (): JSX.Element => {
+  const location = useLocation();
+
+  const [event, setEvent] = useState<Event>(emptyEvent);
+
+  useEffect(() => {
+    try {
+      const eventId: number = parseInt(location.pathname.split('/')[2]);
+
+      fetch(`${API_URL}/events/${eventId}`, {
+        mode: 'cors',
+      })
+        .then(async (res): Promise<Event | undefined> => {
+          if (res.status === 404) {
+            console.error('No event found with this ID');
+            setEvent({
+              ...emptyEvent,
+              title: `No event found with ID ${eventId}.`,
+              organizer: 'No organizer found.',
+            });
+            return undefined;
+          } else {
+            return await res.json();
+          }
+        })
+        .then((eventData) => {
+          if (eventData !== undefined) {
+            setEvent({
+              title: eventData.title,
+              organizer: eventData.organizer,
+              startDateTime: new Date(eventData.startDateTime),
+              endDateTime: new Date(eventData.endDateTime),
+              summary: eventData.summary,
+              description: eventData.description,
+              banner: eventData.banner,
+              creationDateTime: new Date(eventData.creationDateTime),
+              lastUpdateDateTime: new Date(eventData.lastUpdateDateTime),
+            });
+          }
+        });
+    } catch (error) {
+      console.error('An error occurred while getting event data.');
+      console.error(error);
+    }
+  }, [location.pathname]);
+
   return (
     <EventPageContainer fluid="lg">
       {/* Banner and Event Info */}
       <BannerAndInfoRow noGutters>
         <Col lg={8}>
-          <Banner src={eventBanner} alt="Event banner alt text" />
+          <Banner
+            src={event.banner ? event.banner : eventBanner}
+            alt="Event banner alt text"
+          />
         </Col>
         <Col lg={4}>
           <InfoSection>
             <Information>
-              <Heading>My Awesome Event</Heading>
+              <Heading>{event.title}</Heading>
               <OrganizerInfo>
                 <OrganizerImage src={organizerImage} alt="Organizer image" />
-                <OrganizerName>By John Doe</OrganizerName>
+                <OrganizerName>By {event.organizer}</OrganizerName>
               </OrganizerInfo>
               <TimeInfo>
                 <TimeIcon src={timeIcon} alt="Time icon" />
                 <TimeContents>
-                  <p>Tuesday, January 1</p>
-                  <p>10:00 AM - 12:00 PM</p>
+                  <p>{event.startDateTime.toLocaleDateString()}</p>
+                  <p>{event.startDateTime.toLocaleTimeString()}</p>
                 </TimeContents>
               </TimeInfo>
               <AddToCalendar href="#">Add to Calendar</AddToCalendar>
@@ -64,26 +127,9 @@ const EventPage: React.FC = (): JSX.Element => {
       <Row noGutters>
         <Col lg={8}>
           <DetailsArticle>
-            <Summary>
-              A summary of my awesome event goes here. It should be under 160
-              characters long.
-            </Summary>
+            <Summary>{event.summary ? event.summary : ''}</Summary>
             <Description>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              ornare ante ut nunc varius tristique. Donec semper elit semper,
-              sagittis lacus in, eleifend nunc. Sed ut blandit nisl, ut vehicula
-              tellus. Vivamus luctus ex quis justo vulputate elementum. Nam
-              aliquet sit amet sapien sed aliquam. Proin gravida velit vitae
-              metus ultrices ullamcorper. Fusce id turpis ut sem finibus tempor.
-              Cras tempus, est sit amet bibendum vestibulum, mi mauris suscipit
-              velit, vel ultricies erat massa vitae nisi. Morbi vitae lacus at
-              tellus iaculis rutrum. Curabitur cursus enim at dui dignissim
-              dignissim. Quisque dignissim tincidunt diam. Curabitur gravida
-              auctor augue, non feugiat dolor pretium vitae. Praesent tristique
-              ipsum sed porta pretium. Integer volutpat fringilla ultricies.
-              Cras pharetra pulvinar quam, at tempus erat scelerisque dictum.
-              Nulla tempus, risus vitae auctor accumsan, magna lacus luctus
-              lacus, ut elementum ligula turpis vitae lacus.
+              {event.description ? event.description : ''}
             </Description>
           </DetailsArticle>
         </Col>
