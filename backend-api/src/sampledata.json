@@ -1,0 +1,34 @@
+{
+  "events": [
+    {
+      "title": "Test Event",
+      "organizer": "John Doe",
+      "startDateTime": "January 1, 2021 11:00 AM",
+      "endDateTime": "January 1, 2021 12:00 AM"
+    },
+    {
+      "title": "Test Event 2",
+      "organizer": "John Smith",
+      "startDateTime": "December 1, 2021 5:00 AM",
+      "endDateTime": "December 1, 2021 6:00 AM"
+    },
+    {
+      "title": "Test Event 3",
+      "organizer": "Host ABC",
+      "startDateTime": "April 1, 2020 1:00 AM",
+      "endDateTime": "April 2, 2020 2:00 AM"
+    },
+    {
+      "title": "Test Event 4",
+      "organizer": "Host XYZ",
+      "startDateTime": "May 1, 2022 3:00 PM",
+      "endDateTime": "May 1, 2022 4:00 PM"
+    },
+    {
+      "title": "Test Event 5",
+      "organizer": "Doe Johns",
+      "startDateTime": "March 1, 2018 6:00 PM",
+      "endDateTime": "March 1, 2018 7:00 PM"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "eventure-backend-api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node src/"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "helmet": "^4.1.0",
+    "morgan": "~1.9.1",
+    "pg": "^8.3.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "eslint": "^7.6.0",
+    "flow-bin": "^0.131.0",
+    "prettier": "2.0.5"
+  }
+}
