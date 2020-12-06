@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import '../../../node_modules/placeholder-loading/src/scss/placeholder-loading.scss';
 import { Event } from 'types';
 import {
   AddToCalendar,
@@ -47,6 +49,7 @@ const EventPage: React.FC = (): JSX.Element => {
   const location = useLocation();
 
   const [event, setEvent] = useState<Event>(emptyEvent);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     try {
@@ -55,19 +58,21 @@ const EventPage: React.FC = (): JSX.Element => {
       fetch(`${API_URL}/events/${eventId}`, {
         mode: 'cors',
       })
-        .then(async (res): Promise<Event | undefined> => {
-          if (res.status === 404) {
-            console.error('No event found with this ID');
-            setEvent({
-              ...emptyEvent,
-              title: `No event found with ID ${eventId}.`,
-              organizer: 'No organizer found.',
-            });
-            return undefined;
-          } else {
-            return await res.json();
+        .then(
+          async (res): Promise<Event | undefined> => {
+            if (res.status === 404) {
+              console.error('No event found with this ID');
+              setEvent({
+                ...emptyEvent,
+                title: `No event found with ID ${eventId}.`,
+                organizer: 'No organizer found.',
+              });
+              return undefined;
+            } else {
+              return await res.json();
+            }
           }
-        })
+        )
         .then((eventData) => {
           if (eventData !== undefined) {
             setEvent({
@@ -81,6 +86,8 @@ const EventPage: React.FC = (): JSX.Element => {
               creationDateTime: new Date(eventData.creationDateTime),
               lastUpdateDateTime: new Date(eventData.lastUpdateDateTime),
             });
+            setIsLoading(false);
+            // setTimeout(() => setIsLoading(false), 500);
           }
         });
     } catch (error) {
@@ -102,23 +109,41 @@ const EventPage: React.FC = (): JSX.Element => {
         <Col lg={4}>
           <InfoSection>
             <Information>
-              <Heading>{event.title}</Heading>
+              <Heading>
+                {isLoading ? <PlaceholderLine big /> : event.title}
+              </Heading>
               <OrganizerInfo>
                 <OrganizerImage src={organizerImage} alt="Organizer image" />
-                <OrganizerName>By {event.organizer}</OrganizerName>
+                <OrganizerName>
+                  {isLoading ? <PlaceholderLine /> : `By ${event.organizer}`}
+                </OrganizerName>
               </OrganizerInfo>
               <TimeInfo>
                 <TimeIcon src={timeIcon} alt="Time icon" />
                 <TimeContents>
-                  <p>{event.startDateTime.toLocaleDateString()}</p>
-                  <p>{event.startDateTime.toLocaleTimeString()}</p>
+                  {isLoading ? (
+                    <PlaceholderLine style={{ marginBottom: '0.25rem' }} />
+                  ) : (
+                    <p>{event.startDateTime.toLocaleDateString()}</p>
+                  )}
+                  {isLoading ? (
+                    <PlaceholderLine />
+                  ) : (
+                    <p>{event.startDateTime.toLocaleTimeString()}</p>
+                  )}
                 </TimeContents>
               </TimeInfo>
-              <AddToCalendar href="#">Add to Calendar</AddToCalendar>
+              {!isLoading && (
+                <AddToCalendar href="#">Add to Calendar</AddToCalendar>
+              )}
             </Information>
-            <RegisterButton onClick={registerForEvent}>
-              Register for this Event
-            </RegisterButton>
+            {isLoading ? (
+              <PlaceholderLine big />
+            ) : (
+              <RegisterButton onClick={registerForEvent}>
+                Register for this Event
+              </RegisterButton> //
+            )}
           </InfoSection>
         </Col>
       </BannerAndInfoRow>
@@ -127,15 +152,127 @@ const EventPage: React.FC = (): JSX.Element => {
       <Row noGutters>
         <Col lg={8}>
           <DetailsArticle>
-            <Summary>{event.summary ? event.summary : ''}</Summary>
-            <Description>
-              {event.description ? event.description : ''}
-            </Description>
+            <Summary>
+              {isLoading ? (
+                <PlaceholderLine big />
+              ) : event.summary ? (
+                event.summary
+              ) : (
+                ''
+              )}
+            </Summary>
+            <div style={{ height: '10rem' }}>
+              {isLoading ? (
+                <PlaceholderText />
+              ) : (
+                <Description>
+                  {event.description ? event.description : ''}
+                </Description>
+              )}
+            </div>
           </DetailsArticle>
         </Col>
+        {/*<Col lg={4}>Details</Col>*/}
       </Row>
     </EventPageContainer>
   );
 };
+
+interface PlaceholderLineProps {
+  big?: boolean;
+  style?: React.CSSProperties;
+}
+
+const PlaceholderLine = (props: PlaceholderLineProps): JSX.Element => {
+  const { big, style } = props;
+  const height = big ? '2.25rem' : '1rem';
+
+  return (
+    <PlaceholderItemStyles>
+      <div className="ph-item">
+        <div className="ph-col-12">
+          <div className="ph-row">
+            <div className={`ph-col-12`} style={{ height: height, ...style }} />
+          </div>
+        </div>
+      </div>
+    </PlaceholderItemStyles>
+  );
+};
+
+const PlaceholderText = (): JSX.Element => (
+  <PlaceholderItemStyles>
+    <div className="ph-item" style={{ height: 'auto', border: 'none' }}>
+      <div className="ph-col-12">
+        <div className="ph-row">
+          <div
+            className="ph-col-10"
+            style={{ height: '1rem', marginBottom: '0.5rem' }}
+          />
+          <div
+            className="ph-col-12"
+            style={{ height: '1rem', marginBottom: '0.5rem' }}
+          />
+          <div
+            className="ph-col-6"
+            style={{ height: '1rem', marginBottom: '0.5rem' }}
+          />
+        </div>
+        <div className="ph-row" style={{ width: '100%' }}>
+          <div
+            className="ph-col-12 empty"
+            style={{ height: '2rem', marginBottom: '0.5rem' }}
+          />
+        </div>
+        <PlaceholderLine
+          big
+          style={{ height: '1.5rem', marginBottom: '0.5rem', maxWidth: '90%' }}
+        />
+        <div className="ph-row" style={{ width: '100%' }}>
+          <div
+            className="ph-col-12 empty"
+            style={{ height: '0.5rem', marginBottom: '0' }}
+          />
+        </div>
+        <div className="ph-row">
+          <div
+            className="ph-col-8"
+            style={{ height: '1rem', marginBottom: '0.5rem' }}
+          />
+          <div
+            className="ph-col-10"
+            style={{ height: '1rem', marginBottom: '0.5rem' }}
+          />
+          <div
+            className="ph-col-12"
+            style={{ height: '1rem', marginBottom: '0.5rem' }}
+          />
+          <div
+            className="ph-col-8"
+            style={{ height: '1rem', marginBottom: '0.5rem' }}
+          />
+          <div
+            className="ph-col-10"
+            style={{ height: '1rem', marginBottom: '0.5rem' }}
+          />
+          <div
+            className="ph-col-4"
+            style={{ height: '1rem', marginBottom: '0.5rem' }}
+          />
+        </div>
+      </div>
+    </div>
+  </PlaceholderItemStyles>
+);
+
+const PlaceholderItemStyles = styled.div`
+  .ph-item,
+  .ph-row,
+  .ph-col-12 {
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+`;
 
 export default EventPage;

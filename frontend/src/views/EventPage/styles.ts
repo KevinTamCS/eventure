@@ -4,6 +4,8 @@ import Row from 'react-bootstrap/Row';
 import { Button } from '../../components/Button';
 
 export const EventPageContainer = styled(Container)`
+  min-height: 150vh;
+  height: auto;
   padding: 0;
 
   @media screen and (min-width: 992px) {
@@ -65,6 +67,7 @@ export const Heading = styled.h1`
 
 export const OrganizerInfo = styled.div`
   display: flex;
+  width: 100%;
   align-items: center;
   margin-bottom: 0.5rem;
 `;
@@ -80,6 +83,7 @@ export const OrganizerName = styled.h2`
   margin: 0 0 0 1rem;
   font-size: 1.25rem;
   font-weight: normal;
+  width: 100%;
 `;
 
 export const TimeInfo = styled.div`
@@ -88,13 +92,14 @@ export const TimeInfo = styled.div`
 `;
 
 export const TimeIcon = styled.img`
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
 `;
 
 export const TimeContents = styled.div`
   margin-left: 1rem;
   font-size: 1.25rem;
+  width: 100%;
 
   & > * {
     margin-bottom: 0;
