@@ -16,7 +16,7 @@ router.get('/', (req: Request, res: Response) => {
         console.error(error);
         res.status(500).send('An error occurred while getting events.');
       });
-  } catch (error: string) {
+  } catch (error: unknown) {
     console.error('An error occurred while getting events:');
     console.error(error);
     res.status(500).send('An error occurred while getting events.');
@@ -48,7 +48,7 @@ router.post('/', (req: Request, res: Response) => {
         console.log('Saved event in database');
         res.status(200).send();
       })
-      .catch((error: string) => {
+      .catch((error: unknown) => {
         console.error('Could not save event:');
         console.error(error);
         res.status(500).send('An error occurred while creating the event.');
