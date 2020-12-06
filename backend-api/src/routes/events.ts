@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { EventModel } from '../sequelize';
+import { EventFormRequest } from '../types';
 
 const router: Router = Router();
 
@@ -59,21 +60,42 @@ router.get('/:id', (req: Request, res: Response) => {
 });
 
 // Create new event
+// Requires auth
 router.post('/', (req: Request, res: Response) => {
   console.log('Creating new event...');
 
   try {
-    const eventData = req.body;
+    const eventData: EventFormRequest = req.body;
     const creationDateTime = new Date();
 
+    // TODO: Call AWS lambda function to process banner and save on AWS S3
+
     const data = {
-      title: eventData.title,
-      organizer: eventData.organizer,
-      startDateTime: new Date(eventData.startDateTime),
-      endDateTime: new Date(eventData.endDateTime),
-      summary: eventData.summary,
-      description: eventData.description,
-      banner: eventData.banner,
+      // Event Info
+      title: eventData.eventInfo.title,
+      organizer: eventData.eventInfo.organizer,
+      category: eventData.eventInfo.category,
+      format: eventData.eventInfo.format,
+      language: eventData.eventInfo.language,
+      tags: eventData.eventInfo.tags,
+
+      // Event Time, Date, and Timezone
+      startDateTime: new Date(
+        eventData.timeAndDate.startDate + ' ' + eventData.timeAndDate.startTime
+      ),
+      endDateTime: new Date(
+        eventData.timeAndDate.endDate + ' ' + eventData.timeAndDate.endTime
+      ),
+      timeZone: JSON.stringify(eventData.timeAndDate.timeZone),
+
+      // Event Banner Image URL
+      bannerImage: 'localhost:3000/image.jpg', // AWS S3 location for banner
+
+      // Event Details
+      summary: eventData.details.summary,
+      description: eventData.details.description,
+
+      // Event Metadata
       creationDateTime: creationDateTime,
       lastUpdateDateTime: creationDateTime,
     };

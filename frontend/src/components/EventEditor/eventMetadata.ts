@@ -76,7 +76,7 @@ export enum Formats {
   Meetup = 'MEETUP',
   Networking = 'NETWORKING',
   Party = 'PARTY',
-  Talk = 'Talk',
+  Talk = 'TALK',
   Tournament = 'TOURNAMENT',
 }
 
