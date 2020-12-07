@@ -4,7 +4,7 @@ import { EventFormRequest } from '../types';
 
 const router: Router = Router();
 
-// Top events
+// Featured events
 router.get('/', (req: Request, res: Response) => {
   console.log('Getting events...');
   try {
@@ -25,7 +25,31 @@ router.get('/', (req: Request, res: Response) => {
   }
 });
 
-// Get specific event
+// Featured events in category
+router.get('/category/:category', (req: Request, res: Response) => {
+  console.log('Getting events in category...');
+  try {
+    EventModel.findAll({
+      where: {
+        category: req.params.category,
+      },
+    })
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((error: string) => {
+        console.error('Could not get events:');
+        console.error(error);
+        res.status(500).send('An error occurred while getting events.');
+      });
+  } catch (error: unknown) {
+    console.error('An error occurred while getting events:');
+    console.error(error);
+    res.status(500).send('An error occurred while getting events.');
+  }
+});
+
+// Get specific event via ID
 router.get('/:id', (req: Request, res: Response) => {
   console.log('Getting events...');
   try {
@@ -102,9 +126,9 @@ router.post('/', (req: Request, res: Response) => {
 
     // Build the model
     EventModel.create(data)
-      .then(() => {
+      .then((result) => {
         console.log('Saved event in database');
-        res.status(200).send();
+        res.status(200).send(JSON.stringify(result.get('id')));
       })
       .catch((error: unknown) => {
         console.error('Could not save event:');

@@ -32,6 +32,10 @@ const ButtonStyles = css`
     background-color: #1691ff;
   }
 
+  &:disabled {
+    background-color: #83c5ff;;
+  }
+
   // 700px
   @media screen and (min-width: 43.75rem) {
     width: 12.5rem;

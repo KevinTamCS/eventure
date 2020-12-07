@@ -36,35 +36,94 @@ export enum EventCategories {
   Fashion = 'FASHION',
 }
 
+export const eventCategoriesReadable = {
+  MUSIC: 'Music',
+  PHOTOGRAPHY: 'Photography',
+  ARTS: 'Arts',
+  BOOKS: 'Books',
+  FOOD_AND_DRINK: 'Food and Drink',
+  SCIENCE_AND_TECH: 'Science and Tech',
+  LIVE_PERFORMANCES: 'Live Performances',
+  EDUCATION_AND_LEARNING: 'Education and Learning',
+  HOME_AND_LIFESTYLE: 'Home and Lifestyle',
+  HEALTH_AND_WELLNESS: 'Health and Wellness',
+  SPORTS_AND_FITNESS: 'Sports and Fitness',
+  FILM_AND_MEDIA: 'Film and Media',
+  LGBTQ: 'LGBTQ',
+  MOVEMENTS: 'Movements',
+  CAREER_AND_BUSINESS: 'Career and Business',
+  HOBBIES: 'Hobbies',
+  GAMES_AND_FUN: 'Games and Fun',
+  LANGUAGE_AND_CULTURE: 'Language and Culture',
+  SOCIAL: 'Social',
+  FASHION: 'Fashion',
+};
+
 interface EventCategoryOptions {
   value: EventCategories;
   label: string;
 }
 
 export const eventCategoryOptions: EventCategoryOptions[] = [
-  { value: EventCategories.Music, label: 'Music' },
-  { value: EventCategories.Photography, label: 'Photography' },
-  { value: EventCategories.Arts, label: 'Arts' },
-  { value: EventCategories.Books, label: 'Books' },
-  { value: EventCategories.FoodAndDrink, label: 'Food and Drink' },
-  { value: EventCategories.ScienceAndTech, label: 'Science and Tech' },
-  { value: EventCategories.LivePerformances, label: 'Live Performances' },
+  { value: EventCategories.Music, label: eventCategoriesReadable.MUSIC },
+  {
+    value: EventCategories.Photography,
+    label: eventCategoriesReadable.PHOTOGRAPHY,
+  },
+  { value: EventCategories.Arts, label: eventCategoriesReadable.ARTS },
+  { value: EventCategories.Books, label: eventCategoriesReadable.BOOKS },
+  {
+    value: EventCategories.FoodAndDrink,
+    label: eventCategoriesReadable.FOOD_AND_DRINK,
+  },
+  {
+    value: EventCategories.ScienceAndTech,
+    label: eventCategoriesReadable.SCIENCE_AND_TECH,
+  },
+  {
+    value: EventCategories.LivePerformances,
+    label: eventCategoriesReadable.LIVE_PERFORMANCES,
+  },
   {
     value: EventCategories.EducationAndLearning,
-    label: 'Education and Learning',
+    label: eventCategoriesReadable.EDUCATION_AND_LEARNING,
   },
-  { value: EventCategories.HomeAndLifestyle, label: 'Home and Lifestyle' },
-  { value: EventCategories.HealthAndWellness, label: 'Health and Wellness' },
-  { value: EventCategories.SportsAndFitness, label: 'Sports and Fitness' },
-  { value: EventCategories.FilmAndMedia, label: 'Film and Media' },
-  { value: EventCategories.LGBTQ, label: 'LGBTQ' },
-  { value: EventCategories.Movements, label: 'Movements' },
-  { value: EventCategories.CareerAndBusiness, label: 'Career and Business' },
-  { value: EventCategories.Hobbies, label: 'Hobbies' },
-  { value: EventCategories.GamesAndFun, label: 'Games and Fun' },
-  { value: EventCategories.LanguageAndCulture, label: 'Language and Culture' },
-  { value: EventCategories.Social, label: 'Social' },
-  { value: EventCategories.Fashion, label: 'Fashion' },
+  {
+    value: EventCategories.HomeAndLifestyle,
+    label: eventCategoriesReadable.HOME_AND_LIFESTYLE,
+  },
+  {
+    value: EventCategories.HealthAndWellness,
+    label: eventCategoriesReadable.HEALTH_AND_WELLNESS,
+  },
+  {
+    value: EventCategories.SportsAndFitness,
+    label: eventCategoriesReadable.SPORTS_AND_FITNESS,
+  },
+  {
+    value: EventCategories.FilmAndMedia,
+    label: eventCategoriesReadable.FILM_AND_MEDIA,
+  },
+  { value: EventCategories.LGBTQ, label: eventCategoriesReadable.LGBTQ },
+  {
+    value: EventCategories.Movements,
+    label: eventCategoriesReadable.MOVEMENTS,
+  },
+  {
+    value: EventCategories.CareerAndBusiness,
+    label: eventCategoriesReadable.CAREER_AND_BUSINESS,
+  },
+  { value: EventCategories.Hobbies, label: eventCategoriesReadable.HOBBIES },
+  {
+    value: EventCategories.GamesAndFun,
+    label: eventCategoriesReadable.GAMES_AND_FUN,
+  },
+  {
+    value: EventCategories.LanguageAndCulture,
+    label: eventCategoriesReadable.LANGUAGE_AND_CULTURE,
+  },
+  { value: EventCategories.Social, label: eventCategoriesReadable.SOCIAL },
+  { value: EventCategories.Fashion, label: eventCategoriesReadable.FASHION },
 ];
 
 // Event Formats

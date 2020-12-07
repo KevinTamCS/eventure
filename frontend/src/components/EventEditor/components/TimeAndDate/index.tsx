@@ -74,18 +74,20 @@ const TimeAndDate: React.FC<Props> = (props) => {
           </Col>
         </Row>
 
-        <LabeledSelect
-          name="timeZone"
-          type="Select"
-          label="Time Zone"
-          options={timeZoneOptions}
-          placeholder="Time Zone..."
-          formSection="timeAndDate"
-          required
-          onChange={(option) =>
-            updateFormikForm(formikProps, option, 'timeAndDate', 'timeZone')
-          }
-        />
+        <>
+          <LabeledSelect
+            name="timeZone"
+            type="Select"
+            label="Time Zone*"
+            options={timeZoneOptions}
+            placeholder="Time Zone..."
+            formSection="timeAndDate"
+            required
+            onChange={(option) =>
+              updateFormikForm(formikProps, option, 'timeAndDate', 'timeZone')
+            }
+          />
+        </>
       </Fieldset>
     </FormSection>
   );

@@ -23,22 +23,6 @@ interface Props {
 const EventInfo: React.FC<Props> = (props) => {
   const { formikProps } = props;
 
-  const firstName: string = localStorage.getItem('firstName') as string;
-  const lastName: string = localStorage.getItem('lastName') as string;
-
-  const organizerOptions: OrganizerOptions[] = [
-    {
-      value: Organizers.User,
-      label: `Me (${firstName} ${lastName})`,
-    },
-    {
-      value: Organizers.Other,
-      label: 'Other Organizer (Enter Name Below)',
-    },
-  ];
-
-  const [organizer, setOrganizer] = useState<Organizers>();
-
   return (
     <FormSection>
       <Fieldset>
@@ -53,45 +37,6 @@ const EventInfo: React.FC<Props> = (props) => {
           required
           onChange={formikProps.handleChange}
         />
-
-        {/* Organizer Group */}
-        <div>
-          <LabeledSelect
-            name="organizer"
-            type="Select"
-            label="Organizer*"
-            options={organizerOptions}
-            placeholder="Organizer..."
-            formSection="eventInfo"
-            onChange={(option) => {
-              if (option) {
-                const optionObject = option as Record<string, unknown>;
-                formikProps.setFieldValue(
-                  'eventInfo.organizer',
-                  optionObject.value
-                );
-
-                // Update organizer
-                if (optionObject.value === 'OTHER') {
-                  setOrganizer(Organizers.Other);
-                } else {
-                  setOrganizer(Organizers.User);
-                }
-              }
-            }}
-          />
-          {/* Display other organizer name only if the user selected "Other Organizer" */}
-          {organizer === Organizers.Other && (
-            <OrganizerNameFormField
-              name="organizerName"
-              type="text"
-              placeholder="Organizer Name*"
-              formSection="eventInfo"
-              required
-              onChange={formikProps.handleChange}
-            />
-          )}
-        </div>
 
         {/* Category and Format Group */}
         <Row>

@@ -34,13 +34,16 @@ const registerForEvent = (): void => {
 };
 
 const emptyEvent: Event = {
+  id: 0,
+  tags: [],
+  timeZone: {},
   title: 'Loading...',
   organizer: 'Loading...',
   startDateTime: new Date(0),
   endDateTime: new Date(0),
-  summary: null,
-  description: null,
-  banner: null,
+  summary: undefined,
+  description: undefined,
+  banner: undefined,
   creationDateTime: new Date(0),
   lastUpdateDateTime: new Date(0),
 };
@@ -76,6 +79,11 @@ const EventPage: React.FC = (): JSX.Element => {
         .then((eventData) => {
           if (eventData !== undefined) {
             setEvent({
+              id: eventData.id,
+              timeZone: eventData.timeZone,
+              category: eventData.category,
+              format: eventData.format,
+              tags: eventData.tags,
               title: eventData.title,
               organizer: eventData.organizer,
               startDateTime: new Date(eventData.startDateTime),
@@ -83,8 +91,6 @@ const EventPage: React.FC = (): JSX.Element => {
               summary: eventData.summary,
               description: eventData.description,
               banner: eventData.banner,
-              creationDateTime: new Date(eventData.creationDateTime),
-              lastUpdateDateTime: new Date(eventData.lastUpdateDateTime),
             });
             setIsLoading(false);
             // setTimeout(() => setIsLoading(false), 500);
@@ -103,7 +109,7 @@ const EventPage: React.FC = (): JSX.Element => {
         <Col lg={8}>
           <Banner
             src={event.banner ? event.banner : eventBanner}
-            alt="Event banner alt text"
+            alt={event.title}
           />
         </Col>
         <Col lg={4}>

@@ -26,6 +26,7 @@ export interface ButtonProps extends CommonProps {
 
 export interface SubmitProps extends CommonProps {
   value: string;
+  disabled?: boolean;
 }
 
 export const AnchorButton: React.FC<AnchorProps> = (props) => {
@@ -59,7 +60,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 };
 
 export const SubmitButton: React.FC<SubmitProps> = (props) => {
-  const { value, className, centered, children } = props;
+  const { value, className, centered, disabled, children } = props;
 
   return (
     <StyledSubmit
@@ -67,6 +68,7 @@ export const SubmitButton: React.FC<SubmitProps> = (props) => {
       value={value}
       className={className}
       centered={centered}
+      disabled={disabled}
     >
       {children}
     </StyledSubmit>

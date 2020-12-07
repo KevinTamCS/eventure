@@ -11,21 +11,23 @@ import {
 } from './styles';
 
 interface Props {
+  id: number;
   banner?: string;
   bannerAlt?: string;
   title: string;
   organizer: string;
   startTime: Date;
+  style?: React.CSSProperties;
 }
 
 const Event: React.FC<Props> = (props) => {
-  const { banner, bannerAlt, title, organizer, startTime } = props;
+  const { id, banner, bannerAlt, title, organizer, startTime, style } = props;
 
   const startDateTime = moment(startTime).format('ddd, MMM D, YYYY, h:mm A z');
 
   return (
-    <EventContainer>
-      <Card to="events/:id">
+    <EventContainer style={style}>
+      <Card to={`events/${id}`}>
         <EventBanner src={banner} alt={bannerAlt} />
         <EventInformation>
           <div>
