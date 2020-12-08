@@ -3,6 +3,7 @@ import { EventCategories, Formats } from '../types';
 
 export interface EventAttributes {
   // Event Info
+  id?: number;
   title: string;
   organizer: string;  // UUID later
   category?: EventCategories;
