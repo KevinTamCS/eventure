@@ -1,6 +1,25 @@
-/**
- * Data format for events.
- */
+export interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+  passwordHash: string;
+  onboardingComplete: boolean;
+}
+
+// The request body for when users join.
+export interface UserJoinRequest {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
+
+// The request body for when users login.
+export interface UserLoginRequest {
+  email: string;
+  password: string;
+}
+
 export interface Event {
   title: string;
   organizer: string;
