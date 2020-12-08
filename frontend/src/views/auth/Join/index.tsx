@@ -9,6 +9,8 @@ import {
   AuthButton,
   OAuthSeparator,
 } from 'views/auth/styles';
+import { API_URL } from '../../../index';
+import { toast } from 'react-toastify';
 
 const Join = (): JSX.Element => {
   const history = useHistory();
@@ -24,58 +26,93 @@ const Join = (): JSX.Element => {
           email: '',
           password: '',
         }}
-        onSubmit={(values) => {
-          console.log(
-            `Registering user ${values.firstName} with email ${values.email}`
-          );
-          console.log(`Values:\n\n${JSON.stringify(values, null, 2)}`);
-          localStorage.setItem('firstName', values.firstName);
-          localStorage.setItem('lastName', values.lastName);
-          localStorage.setItem('email', values.email);
-          localStorage.setItem('isLoggedIn', JSON.stringify(true));
-          history.push('/welcome');
+        onSubmit={(values, formikHelpers) => {
+          try {
+            console.log(JSON.stringify(values));
+            fetch(`${API_URL}/join`, {
+              method: 'POST',
+              cache: 'no-cache',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(values),
+            })
+              .then((res) => {
+                if (res.status === 200) {
+                  console.log('ok');
+
+                  localStorage.setItem('firstName', values.firstName);
+                  localStorage.setItem('lastName', values.lastName);
+                  localStorage.setItem('email', values.email);
+                  localStorage.setItem('isLoggedIn', JSON.stringify(true));
+
+                  history.push('/welcome');
+                } else {
+                  console.error(res.statusText);
+                  toast.error(
+                    'An error occurred while creating your account. Please try again.'
+                  );
+                  formikHelpers.setSubmitting(false);
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+                toast.error(
+                  'An error occurred while creating your account. Please try again.'
+                );
+                formikHelpers.setSubmitting(false);
+              });
+          } catch (error) {
+            console.error(error);
+            toast.error(
+              'An error occurred while creating your account. Please try again.'
+            );
+            formikHelpers.setSubmitting(false);
+          }
         }}
       >
         {(formikProps) => (
           <AuthForm>
-            <AuthFormField
-              name="firstName"
-              type="text"
-              label="First Name"
-              required
-              onChange={formikProps.handleChange}
-            />
+            <fieldset disabled={formikProps.isSubmitting}>
+              <AuthFormField
+                name="firstName"
+                type="text"
+                label="First Name"
+                required
+                onChange={formikProps.handleChange}
+              />
 
-            <AuthFormField
-              name="lastName"
-              type="text"
-              label="Last Name"
-              required
-              onChange={formikProps.handleChange}
-            />
+              <AuthFormField
+                name="lastName"
+                type="text"
+                label="Last Name"
+                required
+                onChange={formikProps.handleChange}
+              />
 
-            <AuthFormField
-              name="email"
-              type="email"
-              label="Email"
-              required
-              onChange={formikProps.handleChange}
-            />
+              <AuthFormField
+                name="email"
+                type="email"
+                label="Email"
+                required
+                onChange={formikProps.handleChange}
+              />
 
-            <AuthFormField
-              name="password"
-              type="password"
-              label="Password"
-              required
-              onChange={formikProps.handleChange}
-            />
+              <AuthFormField
+                name="password"
+                type="password"
+                label="Password"
+                required
+                onChange={formikProps.handleChange}
+              />
 
-            <AuthButton value="Get Started" centered />
+              <AuthButton value="Get Started" centered />
+            </fieldset>
           </AuthForm>
         )}
       </Formik>
 
-      <OAuthSeparator>or</OAuthSeparator>
+      {/*<OAuthSeparator>or</OAuthSeparator>*/}
 
       {/* TODO: Add Continue with Facebook and Google buttons */}
     </AuthContainer>

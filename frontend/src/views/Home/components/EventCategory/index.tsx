@@ -8,6 +8,7 @@ import {
   eventCategoriesReadable,
 } from 'components/EventEditor/eventMetadata';
 import { API_URL } from '../../../../index';
+import EventLoadingPlaceholder from '../../../../components/EventLoadingPlaceholder';
 
 interface Props {
   category: EventCategories;
@@ -29,13 +30,16 @@ const EventCategory: React.FC<Props> = (props) => {
           events.push(
             <Event
               id={event.id}
-              banner={typeof event.banner === 'string' ? event.banner : ''}
+              // banner={typeof event.banner === 'string' ? event.banner : ''}
+              banner={eventBanner}
               title={event.title}
               startTime={event.startDateTime}
               organizer={event.organizer}
             />
           );
         });
+        // Display most recent events first
+        events.reverse();
         setEventsLoaded(true);
       })
       .catch((error) => {
@@ -46,20 +50,18 @@ const EventCategory: React.FC<Props> = (props) => {
   return (
     <EventCategorySection>
       <Heading>{eventCategoriesReadable[category]}</Heading>
-      {!eventsLoaded ? (
-        <Event
-          id={0}
-          banner={eventBanner}
-          title=""
-          startTime={new Date(0)}
-          organizer=""
-          style={{
-            opacity: 0,
-          }}
-        />
-      ) : (
-        <EventsContainer>{events}</EventsContainer>
-      )}
+      <EventsContainer>
+        {!eventsLoaded ? (
+          <>
+            <EventLoadingPlaceholder />
+            <EventLoadingPlaceholder />
+            <EventLoadingPlaceholder />
+            <EventLoadingPlaceholder />
+          </>
+        ) : (
+          events
+        )}
+      </EventsContainer>
     </EventCategorySection>
   );
 };

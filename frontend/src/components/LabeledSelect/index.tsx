@@ -18,6 +18,9 @@ interface Props {
   placeholder?: string;
   required?: boolean;
   formSection?: string;
+  // Building in a docker container wants 2 args, but normal building wants only 1 for some reason
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   onChange?: (option: ValueType<OptionTypeBase>) => void;
 }
 

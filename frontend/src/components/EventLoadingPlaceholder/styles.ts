@@ -31,8 +31,7 @@ export const Card = styled(Link)`
 `;
 
 export const EventBanner = styled.img`
-  //width: 15.625rem;
-  height: 9rem;
+  width: 15.625rem;
   display: block;
   border-radius: 0.625rem 0.625rem 0 0;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.075);

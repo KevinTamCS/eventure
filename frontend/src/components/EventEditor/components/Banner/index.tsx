@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { FormikProps } from 'formik';
 import Dropzone from 'react-dropzone';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { EventForm } from 'components/EventEditor';
 import addImageIcon from 'assets/icons/add-image.svg';
-import 'react-toastify/dist/ReactToastify.css';
 import { Fieldset, FormSection, Legend } from '../../styles';
 import {
   AddImageIcon,
@@ -153,7 +152,6 @@ const Banner: React.FC<Props> = (props) => {
           )}
         </Dropzone>
       </Fieldset>
-      <ToastContainer />
     </FormSection>
   );
 };

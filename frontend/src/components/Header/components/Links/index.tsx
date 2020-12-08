@@ -46,8 +46,8 @@ const Links = (): JSX.Element => {
       <Nav>
         <NavList>
           <NavLink to="/events">Discover</NavLink>
-          <NavLink to="/saved">Saved</NavLink>
-          <NavLink to="/registered">Registered</NavLink>
+          {/*<NavLink to="/saved">Saved</NavLink>*/}
+          {/*<NavLink to="/registered">Registered</NavLink>*/}
           <NewEventNavLink to="/events/new">+ New Event</NewEventNavLink>
           <UserMenu onClick={toggleDropdownMenu} />
         </NavList>

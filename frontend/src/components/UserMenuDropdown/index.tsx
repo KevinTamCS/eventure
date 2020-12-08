@@ -42,12 +42,12 @@ const UserMenuDropdown: React.FC<Props> = (props): JSX.Element => {
       <Name>{userFullName}</Name>
       <hr />
       <DropdownItems>
-        <NavLink to="/events/created" onClick={toggleDropdownMenu}>
-          My Events
-        </NavLink>
-        <NavLink to="/settings" onClick={toggleDropdownMenu}>
-          Settings
-        </NavLink>
+        {/*<NavLink to="/events/created" onClick={toggleDropdownMenu}>*/}
+        {/*  My Events*/}
+        {/*</NavLink>*/}
+        {/*<NavLink to="/settings" onClick={toggleDropdownMenu}>*/}
+        {/*  Settings*/}
+        {/*</NavLink>*/}
         <ButtonLinkListItem>
           <ButtonLink onClick={logOutUser}>Log Out</ButtonLink>
         </ButtonLinkListItem>

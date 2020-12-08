@@ -5,7 +5,7 @@ import 'typeface-inter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'normalize.css';
 
-export const API_URL = 'http://localhost:3001';
+export const API_URL = 'http://ec2-3-238-17-230.compute-1.amazonaws.com';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -23,7 +23,7 @@ interface Props {
 const Event: React.FC<Props> = (props) => {
   const { id, banner, bannerAlt, title, organizer, startTime, style } = props;
 
-  const startDateTime = moment(startTime).format('ddd, MMM D, YYYY, h:mm A z');
+  const startDateTime = moment(startTime).format('MMM D, YYYY, h:mm A z');
 
   return (
     <EventContainer style={style}>

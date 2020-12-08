@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import styled from 'styled-components';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../../../node_modules/placeholder-loading/src/scss/placeholder-loading.scss';
@@ -9,9 +8,9 @@ import {
   AddToCalendar,
   Banner,
   BannerAndInfoRow,
+  Description,
   DetailsArticle,
   EventPageContainer,
-  Summary,
   Heading,
   Information,
   InfoSection,
@@ -19,15 +18,16 @@ import {
   OrganizerInfo,
   OrganizerName,
   RegisterButton,
+  Summary,
   TimeContents,
   TimeIcon,
-  TimeInfo,
-  Description,
+  TimeInfo
 } from './styles';
 import eventBanner from 'assets/dev/event-banner.jpg';
 import organizerImage from 'assets/dev/organizer.jpg';
 import timeIcon from 'assets/icons/clock.svg';
 import { API_URL } from '../../index';
+import { PlaceholderLine, PlaceholderText } from '../../components/PlaceholderItems';
 
 const registerForEvent = (): void => {
   console.log('Registered for event');
@@ -183,102 +183,5 @@ const EventPage: React.FC = (): JSX.Element => {
     </EventPageContainer>
   );
 };
-
-interface PlaceholderLineProps {
-  big?: boolean;
-  style?: React.CSSProperties;
-}
-
-const PlaceholderLine = (props: PlaceholderLineProps): JSX.Element => {
-  const { big, style } = props;
-  const height = big ? '2.25rem' : '1rem';
-
-  return (
-    <PlaceholderItemStyles>
-      <div className="ph-item">
-        <div className="ph-col-12">
-          <div className="ph-row">
-            <div className={`ph-col-12`} style={{ height: height, ...style }} />
-          </div>
-        </div>
-      </div>
-    </PlaceholderItemStyles>
-  );
-};
-
-const PlaceholderText = (): JSX.Element => (
-  <PlaceholderItemStyles>
-    <div className="ph-item" style={{ height: 'auto', border: 'none' }}>
-      <div className="ph-col-12">
-        <div className="ph-row">
-          <div
-            className="ph-col-10"
-            style={{ height: '1rem', marginBottom: '0.5rem' }}
-          />
-          <div
-            className="ph-col-12"
-            style={{ height: '1rem', marginBottom: '0.5rem' }}
-          />
-          <div
-            className="ph-col-6"
-            style={{ height: '1rem', marginBottom: '0.5rem' }}
-          />
-        </div>
-        <div className="ph-row" style={{ width: '100%' }}>
-          <div
-            className="ph-col-12 empty"
-            style={{ height: '2rem', marginBottom: '0.5rem' }}
-          />
-        </div>
-        <PlaceholderLine
-          big
-          style={{ height: '1.5rem', marginBottom: '0.5rem', maxWidth: '90%' }}
-        />
-        <div className="ph-row" style={{ width: '100%' }}>
-          <div
-            className="ph-col-12 empty"
-            style={{ height: '0.5rem', marginBottom: '0' }}
-          />
-        </div>
-        <div className="ph-row">
-          <div
-            className="ph-col-8"
-            style={{ height: '1rem', marginBottom: '0.5rem' }}
-          />
-          <div
-            className="ph-col-10"
-            style={{ height: '1rem', marginBottom: '0.5rem' }}
-          />
-          <div
-            className="ph-col-12"
-            style={{ height: '1rem', marginBottom: '0.5rem' }}
-          />
-          <div
-            className="ph-col-8"
-            style={{ height: '1rem', marginBottom: '0.5rem' }}
-          />
-          <div
-            className="ph-col-10"
-            style={{ height: '1rem', marginBottom: '0.5rem' }}
-          />
-          <div
-            className="ph-col-4"
-            style={{ height: '1rem', marginBottom: '0.5rem' }}
-          />
-        </div>
-      </div>
-    </div>
-  </PlaceholderItemStyles>
-);
-
-const PlaceholderItemStyles = styled.div`
-  .ph-item,
-  .ph-row,
-  .ph-col-12 {
-    padding: 0;
-    margin: 0;
-    border: none;
-  }
-`;
 
 export default EventPage;

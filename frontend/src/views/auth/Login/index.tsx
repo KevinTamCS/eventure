@@ -51,7 +51,7 @@ const Login = (): JSX.Element => {
         )}
       </Formik>
 
-      <OAuthSeparator>or</OAuthSeparator>
+      {/*<OAuthSeparator>or</OAuthSeparator>*/}
 
       {/* TODO: Add Login with Facebook and Google buttons */}
     </AuthContainer>
