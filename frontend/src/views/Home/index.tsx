@@ -5,7 +5,7 @@ import EventCategory from './components/EventCategory';
 import { EventCategories } from 'components/EventEditor/eventMetadata';
 import Ending from './components/Ending';
 import { StyledContainer } from './styles';
-import { API_URL } from '../../index';
+import { API_ROOT } from '../../index';
 import { Event as IEvent } from '../../types';
 import Event from '../../components/Event';
 import {
@@ -25,7 +25,7 @@ const Home = (): JSX.Element => {
   const [events] = useState<JSX.Element[]>([]);
 
   useEffect(() => {
-    fetch(`${API_URL}/events`, {
+    fetch(`${API_ROOT}/events`, {
       mode: 'cors',
     })
       .then((res) => res.json())

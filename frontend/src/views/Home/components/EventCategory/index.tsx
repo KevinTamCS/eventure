@@ -7,7 +7,7 @@ import {
   EventCategories,
   eventCategoriesReadable,
 } from 'components/EventEditor/eventMetadata';
-import { API_URL } from '../../../../index';
+import { API_ROOT } from '../../../../index';
 import EventLoadingPlaceholder from '../../../../components/EventLoadingPlaceholder';
 
 interface Props {
@@ -21,7 +21,7 @@ const EventCategory: React.FC<Props> = (props) => {
 
   // Fetch up to 8 events from backend
   useEffect(() => {
-    fetch(`${API_URL}/events/category/${category}?count=8`, {
+    fetch(`${API_ROOT}/events/category/${category}?count=8`, {
       mode: 'cors',
     })
       .then((res) => res.json())

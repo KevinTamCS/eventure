@@ -26,7 +26,7 @@ import {
 import eventBanner from 'assets/dev/event-banner.jpg';
 import organizerImage from 'assets/dev/organizer.jpg';
 import timeIcon from 'assets/icons/clock.svg';
-import { API_URL } from '../../index';
+import { API_ROOT } from '../../index';
 import { PlaceholderLine, PlaceholderText } from '../../components/PlaceholderItems';
 
 const registerForEvent = (): void => {
@@ -58,7 +58,7 @@ const EventPage: React.FC = (): JSX.Element => {
     try {
       const eventId: number = parseInt(location.pathname.split('/')[2]);
 
-      fetch(`${API_URL}/events/${eventId}`, {
+      fetch(`${API_ROOT}/events/${eventId}`, {
         mode: 'cors',
       })
         .then(

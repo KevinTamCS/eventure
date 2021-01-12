@@ -9,7 +9,7 @@ import {
   AuthButton,
   OAuthSeparator,
 } from 'views/auth/styles';
-import { API_URL } from '../../../index';
+import { API_ROOT } from '../../../index';
 import { toast } from 'react-toastify';
 
 const Join = (): JSX.Element => {
@@ -29,7 +29,7 @@ const Join = (): JSX.Element => {
         onSubmit={(values, formikHelpers) => {
           try {
             console.log(JSON.stringify(values));
-            fetch(`${API_URL}/join`, {
+            fetch(`${API_ROOT}/join`, {
               method: 'POST',
               cache: 'no-cache',
               headers: {

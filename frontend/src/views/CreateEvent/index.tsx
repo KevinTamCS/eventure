@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import EventEditor, { initialValues } from 'components/EventEditor';
 import { Heading, PageContainer } from 'globalStyles';
 import { EventSubmitButton, StyledForm } from 'components/EventEditor/styles';
-import { API_URL } from '../../index';
+import { API_ROOT } from '../../index';
 import { Prompt, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useBeforeunload } from 'react-beforeunload';
@@ -24,7 +24,7 @@ const CreateEvent: React.FC = (): JSX.Element => {
       <Formik
         initialValues={initialValues}
         onSubmit={(values, formikHelpers) => {
-          fetch(`${API_URL}/events`, {
+          fetch(`${API_ROOT}/events`, {
             method: 'POST',
             cache: 'no-cache',
             headers: {
