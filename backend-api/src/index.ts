@@ -11,8 +11,7 @@ if (
     process.env.DB_USER &&
     process.env.DB_DIALECT &&
     process.env.DB_DATABASE &&
-    process.env.DB_PASSWORD &&
-    process.env.PORT
+    process.env.DB_PASSWORD
   )
 ) {
   console.error('Database environment variables are not set! Exiting...');
