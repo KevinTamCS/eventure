@@ -24,3 +24,6 @@ yarn-error.log*
 
 # JetBrains IDE Files
 .idea/
+
+# Other
+sslcert/
