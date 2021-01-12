@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node out/"
+    "start": "node out/",
+    "develop": "npx tsc && node out/"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
