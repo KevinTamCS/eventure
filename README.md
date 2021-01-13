@@ -4,6 +4,8 @@ Eventure is a full-stack event discovery app for hosting and finding virtual eve
 
 See it live: [https://eventure.kevintamcs.com](https://eventure.kevintamcs.com)
 
+![A screenshot of Eventure](eventure-screenshot.png)
+
 ## Installation
 
 The Eventure monorepo consists of the frontend and backend in their respective directories.
