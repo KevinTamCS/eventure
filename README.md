@@ -6,7 +6,7 @@ See it live: [https://eventure.kevintamcs.com](https://eventure.kevintamcs.com)
 
 ![A screenshot of Eventure](eventure-screenshot.png)
 
-## Installation
+## Getting Started
 
 The Eventure monorepo consists of the frontend and backend in their respective directories.
 
